@@ -18,7 +18,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     
     self = [super initWithFrame:frame];
-    if(self){
+    if ( self ){
         [self setUpView];
     }
     return self;
@@ -33,28 +33,33 @@
 }
 
 - (void)layoutSubviews{
-    
     [super layoutSubviews];
     [_tableView setFrame:self.bounds];
+    _tableView.dataSource = self;
     
 }
 - (void)setUpView{
     _tableView = [[UITableView alloc]initWithFrame:self.bounds];
     [self addSubview:_tableView];
+}
+
+- (void)registerCell:(Class)cls {
+    NSString * cellStr = NSStringFromClass(cls);
+    
+    UINib * nib = [UINib nibWithNibName:NSStringFromClass(cls) bundle:[NSBundle mainBundle]];
+    
     
 }
-
 #pragma mark tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
     return _tableViewDataSource.dataArrays.count;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    
 }
+
+
 /*
  Only override drawRect: if you perform custom drawing.
  An empty implementation adversely affects performance during animation.

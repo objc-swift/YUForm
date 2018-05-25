@@ -17,6 +17,7 @@
 		3C8D768D20B7A5960011D1BA /* ShellKitDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D768C20B7A5960011D1BA /* ShellKitDemoUITests.m */; };
 		3C8D769D20B7A64F0011D1BA /* ShellKitSelectTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D769C20B7A64F0011D1BA /* ShellKitSelectTableView.m */; };
 		3C8D76A120B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76A020B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m */; };
+		A8D76B804040C3B6533BD0DF /* libPods-ShellKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4028C7FF77D61F9F976A4B4D /* libPods-ShellKitDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,9 @@
 		3C8D769C20B7A64F0011D1BA /* ShellKitSelectTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellKitSelectTableView.m; sourceTree = "<group>"; };
 		3C8D769F20B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellKitSelectTableViewDataSource.h; sourceTree = "<group>"; };
 		3C8D76A020B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellKitSelectTableViewDataSource.m; sourceTree = "<group>"; };
+		4028C7FF77D61F9F976A4B4D /* libPods-ShellKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShellKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FDD08A76660F07E0D562014 /* Pods-ShellKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShellKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShellKitDemo/Pods-ShellKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		FD3ED16284D6E3ABD5E1F198 /* Pods-ShellKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShellKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShellKitDemo/Pods-ShellKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8D76B804040C3B6533BD0DF /* libPods-ShellKitDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +96,8 @@
 				3C8D768020B7A5960011D1BA /* ShellKitDemoTests */,
 				3C8D768B20B7A5960011D1BA /* ShellKitDemoUITests */,
 				3C8D766620B7A5950011D1BA /* Products */,
+				836E9CCFD41AA94B24038F43 /* Pods */,
+				5A6396038188B942F87B1D10 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +165,23 @@
 			path = ShellKitSelectTableView;
 			sourceTree = "<group>";
 		};
+		5A6396038188B942F87B1D10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4028C7FF77D61F9F976A4B4D /* libPods-ShellKitDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		836E9CCFD41AA94B24038F43 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FDD08A76660F07E0D562014 /* Pods-ShellKitDemo.debug.xcconfig */,
+				FD3ED16284D6E3ABD5E1F198 /* Pods-ShellKitDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -165,6 +189,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C8D769120B7A5960011D1BA /* Build configuration list for PBXNativeTarget "ShellKitDemo" */;
 			buildPhases = (
+				37C9FAF8AE624A3A17D9C5B5 /* [CP] Check Pods Manifest.lock */,
 				3C8D766120B7A5950011D1BA /* Sources */,
 				3C8D766220B7A5950011D1BA /* Frameworks */,
 				3C8D766320B7A5950011D1BA /* Resources */,
@@ -282,6 +307,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37C9FAF8AE624A3A17D9C5B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShellKitDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C8D766120B7A5950011D1BA /* Sources */ = {
@@ -459,15 +505,13 @@
 		};
 		3C8D769220B7A5960011D1BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FDD08A76660F07E0D562014 /* Pods-ShellKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC4839NV3U;
 				INFOPLIST_FILE = ShellKitDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -476,15 +520,13 @@
 		};
 		3C8D769320B7A5960011D1BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD3ED16284D6E3ABD5E1F198 /* Pods-ShellKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC4839NV3U;
 				INFOPLIST_FILE = ShellKitDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -498,11 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC4839NV3U;
 				INFOPLIST_FILE = ShellKitDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -517,11 +555,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC4839NV3U;
 				INFOPLIST_FILE = ShellKitDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -535,11 +569,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC4839NV3U;
 				INFOPLIST_FILE = ShellKitDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -553,11 +583,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC4839NV3U;
 				INFOPLIST_FILE = ShellKitDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
