@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SheKitDefaultTableViewCell.h
 //  ShellKitDemo
 //
 //  Created by jimi on 2018/5/28.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SheKit.h"
+@interface SheKitDefaultTableViewCell : UITableViewCell<ShellKitSelectTableView>
 
-@interface ViewController : UIViewController
 
 @end

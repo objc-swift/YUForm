@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ShellKitSelectTableView.h"
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,6 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[ViewController alloc]init];
+    [self.window makeKeyAndVisible];
     
     // Override point for customization after application launch.
     return YES;

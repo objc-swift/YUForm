@@ -16,9 +16,7 @@
 
 @interface ShellKitSelectTableViewDataSource : NSObject
 
-@property (strong,nonatomic)
-
-NSMutableArray<id<ShellKitSelectTableViewDataSourceDelegate>> * dataArrays;
+@property (strong,nonatomic) NSMutableArray *dataArrays;
 
 
 @end

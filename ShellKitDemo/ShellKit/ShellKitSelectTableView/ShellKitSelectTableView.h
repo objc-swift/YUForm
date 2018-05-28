@@ -8,18 +8,26 @@
 
 #import <UIKit/UIKit.h>
 #import "ShellKitSelectTableViewDataSource.h"
+
+typedef NS_ENUM(NSUInteger, CellType) {
+    CellTypeSelectItem = 1 ,
+    CellTypeSelectHead = 2
+};
+
 @protocol ShellKitSelectTableView<NSObject>
 @required
 - (void)shell_setModel:(id)model;
 - (void)shell_selectedStatus;
 - (void)shell_unSelectStatus;
+
+
 @end
 
 @interface ShellKitSelectTableView : UIView
-@property (copy,nonatomic) NSString * regId;
-@property (copy,nonatomic) Class cls;
 @property (strong,nonatomic) ShellKitSelectTableViewDataSource * tableViewDataSource ;
+@property (assign,nonatomic) BOOL isMultiple;
 
-- (void)registerCell:(Class)cls ;
+- (void)reloadData ;
+- (void)registerViewClass:(Class)cls type:(CellType)type;
 
 @end

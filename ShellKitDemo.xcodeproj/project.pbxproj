@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3C8D766A20B7A5960011D1BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D766920B7A5960011D1BA /* AppDelegate.m */; };
-		3C8D766D20B7A5960011D1BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D766C20B7A5960011D1BA /* ViewController.m */; };
-		3C8D767020B7A5960011D1BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D766E20B7A5960011D1BA /* Main.storyboard */; };
 		3C8D767220B7A5960011D1BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D767120B7A5960011D1BA /* Assets.xcassets */; };
 		3C8D767520B7A5960011D1BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D767320B7A5960011D1BA /* LaunchScreen.storyboard */; };
 		3C8D767820B7A5960011D1BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D767720B7A5960011D1BA /* main.m */; };
@@ -17,6 +15,11 @@
 		3C8D768D20B7A5960011D1BA /* ShellKitDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D768C20B7A5960011D1BA /* ShellKitDemoUITests.m */; };
 		3C8D769D20B7A64F0011D1BA /* ShellKitSelectTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D769C20B7A64F0011D1BA /* ShellKitSelectTableView.m */; };
 		3C8D76A120B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76A020B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m */; };
+		3C8D76A820BB9B960011D1BA /* ShellKitTableViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76A720BB9B960011D1BA /* ShellKitTableViewCellModel.m */; };
+		3C8D76AC20BBB1D30011D1BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76AA20BBB1D30011D1BA /* ViewController.m */; };
+		3C8D76AD20BBB1D30011D1BA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76AB20BBB1D30011D1BA /* ViewController.xib */; };
+		3C8D76B220BBB8860011D1BA /* SheKitDefaultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76B020BBB8860011D1BA /* SheKitDefaultTableViewCell.m */; };
+		3C8D76B320BBB8860011D1BA /* SheKitDefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76B120BBB8860011D1BA /* SheKitDefaultTableViewCell.xib */; };
 		A8D76B804040C3B6533BD0DF /* libPods-ShellKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4028C7FF77D61F9F976A4B4D /* libPods-ShellKitDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -41,9 +44,6 @@
 		3C8D766520B7A5950011D1BA /* ShellKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShellKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C8D766820B7A5950011D1BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C8D766920B7A5960011D1BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3C8D766B20B7A5960011D1BA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3C8D766C20B7A5960011D1BA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3C8D766F20B7A5960011D1BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C8D767120B7A5960011D1BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C8D767420B7A5960011D1BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C8D767620B7A5960011D1BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +58,15 @@
 		3C8D769C20B7A64F0011D1BA /* ShellKitSelectTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellKitSelectTableView.m; sourceTree = "<group>"; };
 		3C8D769F20B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellKitSelectTableViewDataSource.h; sourceTree = "<group>"; };
 		3C8D76A020B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellKitSelectTableViewDataSource.m; sourceTree = "<group>"; };
+		3C8D76A620BB9B960011D1BA /* ShellKitTableViewCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellKitTableViewCellModel.h; sourceTree = "<group>"; };
+		3C8D76A720BB9B960011D1BA /* ShellKitTableViewCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellKitTableViewCellModel.m; sourceTree = "<group>"; };
+		3C8D76A920BBB1D30011D1BA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3C8D76AA20BBB1D30011D1BA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3C8D76AB20BBB1D30011D1BA /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		3C8D76AF20BBB8860011D1BA /* SheKitDefaultTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SheKitDefaultTableViewCell.h; sourceTree = "<group>"; };
+		3C8D76B020BBB8860011D1BA /* SheKitDefaultTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SheKitDefaultTableViewCell.m; sourceTree = "<group>"; };
+		3C8D76B120BBB8860011D1BA /* SheKitDefaultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheKitDefaultTableViewCell.xib; sourceTree = "<group>"; };
+		3C8D76B420BBB9700011D1BA /* SheKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SheKit.h; sourceTree = "<group>"; };
 		4028C7FF77D61F9F976A4B4D /* libPods-ShellKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShellKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FDD08A76660F07E0D562014 /* Pods-ShellKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShellKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShellKitDemo/Pods-ShellKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FD3ED16284D6E3ABD5E1F198 /* Pods-ShellKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShellKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShellKitDemo/Pods-ShellKitDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,13 +126,13 @@
 				3C8D769A20B7A5AF0011D1BA /* ShellKit */,
 				3C8D766820B7A5950011D1BA /* AppDelegate.h */,
 				3C8D766920B7A5960011D1BA /* AppDelegate.m */,
-				3C8D766B20B7A5960011D1BA /* ViewController.h */,
-				3C8D766C20B7A5960011D1BA /* ViewController.m */,
-				3C8D766E20B7A5960011D1BA /* Main.storyboard */,
 				3C8D767120B7A5960011D1BA /* Assets.xcassets */,
 				3C8D767320B7A5960011D1BA /* LaunchScreen.storyboard */,
 				3C8D767620B7A5960011D1BA /* Info.plist */,
 				3C8D767720B7A5960011D1BA /* main.m */,
+				3C8D76A920BBB1D30011D1BA /* ViewController.h */,
+				3C8D76AA20BBB1D30011D1BA /* ViewController.m */,
+				3C8D76AB20BBB1D30011D1BA /* ViewController.xib */,
 			);
 			path = ShellKitDemo;
 			sourceTree = "<group>";
@@ -149,6 +158,9 @@
 		3C8D769A20B7A5AF0011D1BA /* ShellKit */ = {
 			isa = PBXGroup;
 			children = (
+				3C8D76B420BBB9700011D1BA /* SheKit.h */,
+				3C8D76AE20BBB6F30011D1BA /* DemoCell */,
+				3C8D76A220BB9AFE0011D1BA /* Public */,
 				3C8D769E20B7A6610011D1BA /* ShellKitSelectTableView */,
 			);
 			path = ShellKit;
@@ -163,6 +175,25 @@
 				3C8D76A020B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m */,
 			);
 			path = ShellKitSelectTableView;
+			sourceTree = "<group>";
+		};
+		3C8D76A220BB9AFE0011D1BA /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				3C8D76A620BB9B960011D1BA /* ShellKitTableViewCellModel.h */,
+				3C8D76A720BB9B960011D1BA /* ShellKitTableViewCellModel.m */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		3C8D76AE20BBB6F30011D1BA /* DemoCell */ = {
+			isa = PBXGroup;
+			children = (
+				3C8D76AF20BBB8860011D1BA /* SheKitDefaultTableViewCell.h */,
+				3C8D76B020BBB8860011D1BA /* SheKitDefaultTableViewCell.m */,
+				3C8D76B120BBB8860011D1BA /* SheKitDefaultTableViewCell.xib */,
+			);
+			path = DemoCell;
 			sourceTree = "<group>";
 		};
 		5A6396038188B942F87B1D10 /* Frameworks */ = {
@@ -288,7 +319,8 @@
 			files = (
 				3C8D767520B7A5960011D1BA /* LaunchScreen.storyboard in Resources */,
 				3C8D767220B7A5960011D1BA /* Assets.xcassets in Resources */,
-				3C8D767020B7A5960011D1BA /* Main.storyboard in Resources */,
+				3C8D76AD20BBB1D30011D1BA /* ViewController.xib in Resources */,
+				3C8D76B320BBB8860011D1BA /* SheKitDefaultTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,10 +366,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C8D766D20B7A5960011D1BA /* ViewController.m in Sources */,
+				3C8D76AC20BBB1D30011D1BA /* ViewController.m in Sources */,
 				3C8D767820B7A5960011D1BA /* main.m in Sources */,
+				3C8D76B220BBB8860011D1BA /* SheKitDefaultTableViewCell.m in Sources */,
 				3C8D766A20B7A5960011D1BA /* AppDelegate.m in Sources */,
 				3C8D769D20B7A64F0011D1BA /* ShellKitSelectTableView.m in Sources */,
+				3C8D76A820BB9B960011D1BA /* ShellKitTableViewCellModel.m in Sources */,
 				3C8D76A120B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,14 +408,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3C8D766E20B7A5960011D1BA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3C8D766F20B7A5960011D1BA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3C8D767320B7A5960011D1BA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -509,9 +535,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PC4839NV3U;
+				DEVELOPMENT_TEAM = JLAJ9329RS;
 				INFOPLIST_FILE = ShellKitDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -524,9 +554,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PC4839NV3U;
+				DEVELOPMENT_TEAM = JLAJ9329RS;
 				INFOPLIST_FILE = ShellKitDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -540,7 +574,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC4839NV3U;
 				INFOPLIST_FILE = ShellKitDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -555,7 +593,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC4839NV3U;
 				INFOPLIST_FILE = ShellKitDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -569,7 +611,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC4839NV3U;
 				INFOPLIST_FILE = ShellKitDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -583,7 +629,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PC4839NV3U;
 				INFOPLIST_FILE = ShellKitDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gumi.ShellKitDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
