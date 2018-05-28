@@ -25,11 +25,14 @@
         ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
         [m addObject:model];
     }
-    _tableVie.tableViewDataSource.dataArrays = m ;
-    [_tableVie reloadData];
+    ShellKitSectionModel * section0 = [[ShellKitSectionModel alloc]init];
+    section0.rowArrays = m;
     
-    // _tableVie.tableViewDataSource.dataArrays =
-    // Do any additional setup after loading the view from its nib.
+    ShellKitSectionModel * section1 = [[ShellKitSectionModel alloc]init];
+    section1.rowArrays = m ;
+    [_tableVie.tableViewDataSource.sectionArrays addObject:section0];
+    [_tableVie.tableViewDataSource.sectionArrays addObject:section1];
+    [_tableVie reloadData];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

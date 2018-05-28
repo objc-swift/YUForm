@@ -16,7 +16,7 @@
     
     if(self){
         
-        _dataArrays =[[NSMutableArray alloc]init];
+        _sectionArrays =[[NSMutableArray alloc]init];
     }
     
     return self;

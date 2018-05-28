@@ -20,6 +20,7 @@
 		3C8D76AD20BBB1D30011D1BA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76AB20BBB1D30011D1BA /* ViewController.xib */; };
 		3C8D76B220BBB8860011D1BA /* SheKitDefaultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76B020BBB8860011D1BA /* SheKitDefaultTableViewCell.m */; };
 		3C8D76B320BBB8860011D1BA /* SheKitDefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76B120BBB8860011D1BA /* SheKitDefaultTableViewCell.xib */; };
+		3C8D76BA20BC06540011D1BA /* ShellKitSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76B920BC06540011D1BA /* ShellKitSectionModel.m */; };
 		A8D76B804040C3B6533BD0DF /* libPods-ShellKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4028C7FF77D61F9F976A4B4D /* libPods-ShellKitDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,8 @@
 		3C8D76B020BBB8860011D1BA /* SheKitDefaultTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SheKitDefaultTableViewCell.m; sourceTree = "<group>"; };
 		3C8D76B120BBB8860011D1BA /* SheKitDefaultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheKitDefaultTableViewCell.xib; sourceTree = "<group>"; };
 		3C8D76B420BBB9700011D1BA /* SheKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SheKit.h; sourceTree = "<group>"; };
+		3C8D76B820BC06540011D1BA /* ShellKitSectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellKitSectionModel.h; sourceTree = "<group>"; };
+		3C8D76B920BC06540011D1BA /* ShellKitSectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellKitSectionModel.m; sourceTree = "<group>"; };
 		4028C7FF77D61F9F976A4B4D /* libPods-ShellKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShellKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FDD08A76660F07E0D562014 /* Pods-ShellKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShellKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShellKitDemo/Pods-ShellKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FD3ED16284D6E3ABD5E1F198 /* Pods-ShellKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShellKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShellKitDemo/Pods-ShellKitDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 			children = (
 				3C8D76A620BB9B960011D1BA /* ShellKitTableViewCellModel.h */,
 				3C8D76A720BB9B960011D1BA /* ShellKitTableViewCellModel.m */,
+				3C8D76B820BC06540011D1BA /* ShellKitSectionModel.h */,
+				3C8D76B920BC06540011D1BA /* ShellKitSectionModel.m */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				3C8D769D20B7A64F0011D1BA /* ShellKitSelectTableView.m in Sources */,
 				3C8D76A820BB9B960011D1BA /* ShellKitTableViewCellModel.m in Sources */,
 				3C8D76A120B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m in Sources */,
+				3C8D76BA20BC06540011D1BA /* ShellKitSectionModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
