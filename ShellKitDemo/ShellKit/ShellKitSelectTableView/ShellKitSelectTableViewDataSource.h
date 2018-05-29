@@ -10,7 +10,6 @@
 
 @class ShellKitSectionModel;
 
-
 @protocol ShellKitSelectTableViewDataSourceDelegate<NSObject>
 
 @required
@@ -20,6 +19,5 @@
 @interface ShellKitSelectTableViewDataSource : NSObject
 
 @property (strong,nonatomic) NSMutableArray<ShellKitSectionModel *> *sectionArrays ;
-
 
 @end

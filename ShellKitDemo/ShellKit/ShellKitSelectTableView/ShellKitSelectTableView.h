@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ShellKitSelectTableViewDataSource.h"
 @class ShellKitTableViewCellModel;
-typedef NS_ENUM(NSUInteger, CellType) {
-    CellTypeSelectItem = 1 ,
-    CellTypeSelectHead = 2
+typedef NS_ENUM(NSUInteger, RegClassType) {
+    RegClassTypeCell = 1 ,
+    RegClassTypeHeadView = 2
 };
 
 @protocol ShellKitSelectTableView<NSObject>
@@ -24,9 +24,9 @@ typedef NS_ENUM(NSUInteger, CellType) {
 
 @interface ShellKitSelectTableView : UIView
 @property (strong,nonatomic) ShellKitSelectTableViewDataSource * tableViewDataSource ;
-@property (assign,nonatomic) BOOL isMultiple;
+@property (assign,nonatomic) BOOL isMultipleSelected;
 @property (strong,nonatomic) UITableView * tableView;
 
 - (void)reloadData ;
-- (void)registerViewClass:(Class)cls type:(CellType)type;
+- (void)registerViewClass:(Class)cls type:(RegClassType)type;
 @end

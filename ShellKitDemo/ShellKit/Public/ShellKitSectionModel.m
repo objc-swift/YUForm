@@ -8,6 +8,13 @@
 
 #import "ShellKitSectionModel.h"
 
+
+@interface ShellKitSectionModel()
+
+@property (strong,nonatomic) NSMutableArray <ShellKitTableViewCellModel *> * selectedArrays;
+
+@end
+
 @implementation ShellKitSectionModel
 
 - (id)init{

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ShellKitSelectTableView.h"
 #import "ViewController.h"
+#import "SheKitSectionHeadView.h"
 @interface AppDelegate ()
 
 @end

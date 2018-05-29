@@ -21,6 +21,9 @@
 		3C8D76B220BBB8860011D1BA /* SheKitDefaultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76B020BBB8860011D1BA /* SheKitDefaultTableViewCell.m */; };
 		3C8D76B320BBB8860011D1BA /* SheKitDefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76B120BBB8860011D1BA /* SheKitDefaultTableViewCell.xib */; };
 		3C8D76BA20BC06540011D1BA /* ShellKitSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76B920BC06540011D1BA /* ShellKitSectionModel.m */; };
+		3C8D76BD20BCF4BA0011D1BA /* SheKitSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76BC20BCF4BA0011D1BA /* SheKitSectionHeadView.m */; };
+		3C8D76C520BD31370011D1BA /* SheKitSectionHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76C420BD31370011D1BA /* SheKitSectionHeadView.xib */; };
+		3C8D76CB20BD573E0011D1BA /* ShellKitBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76CA20BD573E0011D1BA /* ShellKitBundle.bundle */; };
 		A8D76B804040C3B6533BD0DF /* libPods-ShellKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4028C7FF77D61F9F976A4B4D /* libPods-ShellKitDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,10 @@
 		3C8D76B420BBB9700011D1BA /* SheKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SheKit.h; sourceTree = "<group>"; };
 		3C8D76B820BC06540011D1BA /* ShellKitSectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellKitSectionModel.h; sourceTree = "<group>"; };
 		3C8D76B920BC06540011D1BA /* ShellKitSectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellKitSectionModel.m; sourceTree = "<group>"; };
+		3C8D76BB20BCF4BA0011D1BA /* SheKitSectionHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SheKitSectionHeadView.h; sourceTree = "<group>"; };
+		3C8D76BC20BCF4BA0011D1BA /* SheKitSectionHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SheKitSectionHeadView.m; sourceTree = "<group>"; };
+		3C8D76C420BD31370011D1BA /* SheKitSectionHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheKitSectionHeadView.xib; sourceTree = "<group>"; };
+		3C8D76CA20BD573E0011D1BA /* ShellKitBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShellKitBundle.bundle; sourceTree = "<group>"; };
 		4028C7FF77D61F9F976A4B4D /* libPods-ShellKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShellKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FDD08A76660F07E0D562014 /* Pods-ShellKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShellKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShellKitDemo/Pods-ShellKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FD3ED16284D6E3ABD5E1F198 /* Pods-ShellKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShellKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShellKitDemo/Pods-ShellKitDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,8 +168,9 @@
 		3C8D769A20B7A5AF0011D1BA /* ShellKit */ = {
 			isa = PBXGroup;
 			children = (
+				3C8D76CA20BD573E0011D1BA /* ShellKitBundle.bundle */,
 				3C8D76B420BBB9700011D1BA /* SheKit.h */,
-				3C8D76AE20BBB6F30011D1BA /* DemoCell */,
+				3C8D76AE20BBB6F30011D1BA /* DemoView */,
 				3C8D76A220BB9AFE0011D1BA /* Public */,
 				3C8D769E20B7A6610011D1BA /* ShellKitSelectTableView */,
 			);
@@ -191,14 +199,17 @@
 			path = Public;
 			sourceTree = "<group>";
 		};
-		3C8D76AE20BBB6F30011D1BA /* DemoCell */ = {
+		3C8D76AE20BBB6F30011D1BA /* DemoView */ = {
 			isa = PBXGroup;
 			children = (
 				3C8D76AF20BBB8860011D1BA /* SheKitDefaultTableViewCell.h */,
 				3C8D76B020BBB8860011D1BA /* SheKitDefaultTableViewCell.m */,
 				3C8D76B120BBB8860011D1BA /* SheKitDefaultTableViewCell.xib */,
+				3C8D76BB20BCF4BA0011D1BA /* SheKitSectionHeadView.h */,
+				3C8D76BC20BCF4BA0011D1BA /* SheKitSectionHeadView.m */,
+				3C8D76C420BD31370011D1BA /* SheKitSectionHeadView.xib */,
 			);
-			path = DemoCell;
+			path = DemoView;
 			sourceTree = "<group>";
 		};
 		5A6396038188B942F87B1D10 /* Frameworks */ = {
@@ -322,10 +333,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8D76C520BD31370011D1BA /* SheKitSectionHeadView.xib in Resources */,
 				3C8D767520B7A5960011D1BA /* LaunchScreen.storyboard in Resources */,
 				3C8D767220B7A5960011D1BA /* Assets.xcassets in Resources */,
 				3C8D76AD20BBB1D30011D1BA /* ViewController.xib in Resources */,
 				3C8D76B320BBB8860011D1BA /* SheKitDefaultTableViewCell.xib in Resources */,
+				3C8D76CB20BD573E0011D1BA /* ShellKitBundle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8D76BD20BCF4BA0011D1BA /* SheKitSectionHeadView.m in Sources */,
 				3C8D76AC20BBB1D30011D1BA /* ViewController.m in Sources */,
 				3C8D767820B7A5960011D1BA /* main.m in Sources */,
 				3C8D76B220BBB8860011D1BA /* SheKitDefaultTableViewCell.m in Sources */,
