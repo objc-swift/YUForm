@@ -11,6 +11,7 @@
 @interface ShellKitTableViewCellModel : NSObject
 @property (strong,nonatomic) id data;
 @property (assign,nonatomic) BOOL isSelected;
+@property (assign,nonatomic) NSInteger rowNumber ;
 @property (assign,nonatomic) CGFloat cellHeight ;
 
 @end

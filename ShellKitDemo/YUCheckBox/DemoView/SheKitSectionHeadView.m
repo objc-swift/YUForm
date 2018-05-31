@@ -8,6 +8,13 @@
 
 #import "SheKitSectionHeadView.h"
 
+
+@interface  SheKitSectionHeadView()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@end
+
+
 @implementation SheKitSectionHeadView
 
 
@@ -23,7 +30,10 @@
     
     return self;
 }
-
+- (void)shell_setModel:(ShellKitSectionModel *) model{
+    [_titleLabel setText:model.data];
+    
+}
 - (void)setUp{
     
     

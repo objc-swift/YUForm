@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SheKitSectionHeadView : UITableViewHeaderFooterView
+#import "SheKit.h"
+@interface SheKitSectionHeadView : UITableViewHeaderFooterView<YUCheckBoxSectionDelegate>
 
 @end

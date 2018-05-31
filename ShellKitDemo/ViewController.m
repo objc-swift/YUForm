@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ShellKit/SheKit.h"
+#import "SheKit.h"
 #import "SheKitDefaultTableViewCell.h"
 #import "SheKitSectionHeadView.h"
 @interface ViewController ()
@@ -25,24 +25,34 @@
     [_tableVie registerViewClass:SheKitSectionHeadView.class type:RegClassTypeHeadView];
     NSMutableArray * m = [[NSMutableArray alloc]init];
     
-    for(int i = 0 ; i < 10 ; i ++ ){
-        ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
-        model.data = @"5-10 k";
-        
-        [m addObject:model];
-    }
+    NSArray * arr =@[@"A 3-4K ",@"B 4-7K",@"8K-10K ",@"D 10K+" ];
+    NSArray * arr2 =@[@"本科",@"大专",@"高中",@"初中及以下" ];
     
     ShellKitSectionModel * section0 = [[ShellKitSectionModel alloc]init];
     section0.sectionHeight = 30 ;
-    
+    section0.isCanMultipleChoice = YES;
+    section0.data = @"您现在月薪是多少？";
+    for(int i = 0 ; i < 4 ; i ++ ){
+        ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
+        model.data = arr[i];
+        [m addObject:model];
+    }
     section0.rowArrays = m;
     ShellKitSectionModel * section1 = [[ShellKitSectionModel alloc]init];
-    section1.rowArrays = m ;
     section1.sectionHeight = 30 ;
-    
+    NSMutableArray * m2 = [[NSMutableArray alloc]init];
+    for(int i = 0 ; i < 4 ; i ++ ){
+        ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
+        model.data = arr2[i];
+        [m2 addObject:model];
+    }
+    section1.rowArrays = m2 ;
+    section1.data = @"您的学历是什么？";
     [_tableVie.tableViewDataSource.sectionArrays addObject:section0];
     [_tableVie.tableViewDataSource.sectionArrays addObject:section1];
     [_tableVie reloadData];
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class ShellKitTableViewCellModel;
+
 @interface ShellKitSectionModel : NSObject
+
 @property (strong,nonatomic) NSMutableArray <ShellKitTableViewCellModel *> * rowArrays ;
-@property (strong,nonatomic) NSSet * selectRowArrays ;
+@property (strong,nonatomic) NSMutableSet   <ShellKitTableViewCellModel *> * selectRowsSet ;
 @property (strong,nonatomic) id data ;
 @property (assign,nonatomic) CGFloat sectionHeight ;
 @property (assign,nonatomic) BOOL isCanMultipleChoice ;

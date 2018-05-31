@@ -15,18 +15,22 @@ typedef NS_ENUM(NSUInteger, RegClassType) {
 };
 
 @protocol ShellKitSelectTableView<NSObject>
-
 @required
-- (void)shell_setModel:(ShellKitTableViewCellModel *)model;
+- (void)shell_setModel:(ShellKitTableViewCellModel *) model;
 - (void)shell_selectedStatus;
 - (void)shell_unSelectStatus;
 @end
 
+@protocol YUCheckBoxSectionDelegate<NSObject>
+@required
+- (void)shell_setModel:(ShellKitSectionModel *) model;
+@end
+
 @interface ShellKitSelectTableView : UIView
 @property (strong,nonatomic) ShellKitSelectTableViewDataSource * tableViewDataSource ;
-@property (assign,nonatomic) BOOL isMultipleSelected;
 @property (strong,nonatomic) UITableView * tableView;
 
 - (void)reloadData ;
 - (void)registerViewClass:(Class)cls type:(RegClassType)type;
+
 @end

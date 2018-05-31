@@ -9,6 +9,4 @@
 #import <UIKit/UIKit.h>
 #import "SheKit.h"
 @interface SheKitDefaultTableViewCell : UITableViewCell<ShellKitSelectTableView>
-
-
 @end

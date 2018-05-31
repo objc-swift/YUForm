@@ -133,7 +133,7 @@
 		3C8D766720B7A5950011D1BA /* ShellKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				3C8D769A20B7A5AF0011D1BA /* ShellKit */,
+				3C8D769A20B7A5AF0011D1BA /* YUCheckBox */,
 				3C8D766820B7A5950011D1BA /* AppDelegate.h */,
 				3C8D766920B7A5960011D1BA /* AppDelegate.m */,
 				3C8D767120B7A5960011D1BA /* Assets.xcassets */,
@@ -165,7 +165,7 @@
 			path = ShellKitDemoUITests;
 			sourceTree = "<group>";
 		};
-		3C8D769A20B7A5AF0011D1BA /* ShellKit */ = {
+		3C8D769A20B7A5AF0011D1BA /* YUCheckBox */ = {
 			isa = PBXGroup;
 			children = (
 				3C8D76CA20BD573E0011D1BA /* ShellKitBundle.bundle */,
@@ -174,7 +174,7 @@
 				3C8D76A220BB9AFE0011D1BA /* Public */,
 				3C8D769E20B7A6610011D1BA /* ShellKitSelectTableView */,
 			);
-			path = ShellKit;
+			path = YUCheckBox;
 			sourceTree = "<group>";
 		};
 		3C8D769E20B7A6610011D1BA /* ShellKitSelectTableView */ = {
