@@ -10,50 +10,77 @@
 #import "SheKit.h"
 #import "SheKitDefaultTableViewCell.h"
 #import "SheKitSectionHeadView.h"
+#import "YUCheckBoxTextCell.h"
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet ShellKitSelectTableView *tableVie;
 @property (weak, nonatomic) IBOutlet UIButton *ss;
-
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    
-    [_tableVie registerViewClass:SheKitDefaultTableViewCell.class type:RegClassTypeCell];
-    [_tableVie registerViewClass:SheKitSectionHeadView.class type:RegClassTypeHeadView];
-    NSMutableArray * m = [[NSMutableArray alloc]init];
-    
-    NSArray * arr =@[@"A 3-4K ",@"B 4-7K",@"8K-10K ",@"D 10K+" ];
-    NSArray * arr2 =@[@"本科",@"大专",@"高中",@"初中及以下" ];
-    
+
+    NSArray * arr =@[@"A 3-4K ",@"B 4-7K",@"8K-10K ",@"D 10K+"];
+    NSArray * arr2 =@[@"本科",@"大专",@"高中",@"初中及以下"];
     ShellKitSectionModel * section0 = [[ShellKitSectionModel alloc]init];
-    section0.sectionHeight = 30 ;
-    section0.isCanMultipleChoice = YES;
-    section0.data = @"您现在月薪是多少？";
-    for(int i = 0 ; i < 4 ; i ++ ){
-        ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
-        model.data = arr[i];
-        [m addObject:model];
-    }
-    section0.rowArrays = m;
+    [section0 yu_settingMake:^(ShellKitSectionModel * this) {
+        this.data = @"您现在月薪是多少？";
+        this.isCanMultipleChoice = YES;
+        this.sectionHeight = 30 ;
+        this.rowCellStyleClass =  SheKitDefaultTableViewCell.class;
+        this.sectionCellStyleClass = SheKitSectionHeadView.class;
+        NSMutableArray * m = [[NSMutableArray alloc]init];
+        for(int i = 0 ; i < 4 ; i ++ ){
+            ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
+            [model yu_settingMake:^(ShellKitTableViewCellModel * this) {
+                this.data = arr[i];
+            }];
+            [m addObject:model];
+        }
+        this.rowArrays = m;
+    }];
+    
     ShellKitSectionModel * section1 = [[ShellKitSectionModel alloc]init];
-    section1.sectionHeight = 30 ;
-    NSMutableArray * m2 = [[NSMutableArray alloc]init];
-    for(int i = 0 ; i < 4 ; i ++ ){
+    [section1 yu_settingMake:^(ShellKitSectionModel * this) {
+        
+        this.data = @"您现在月薪是多少？";
+        this.isCanMultipleChoice = NO;
+        this.sectionHeight = 30 ;
+        this.rowCellStyleClass =  SheKitDefaultTableViewCell.class;
+        this.sectionCellStyleClass = SheKitSectionHeadView.class;
+        for(int i = 0 ; i < 4 ; i ++ ){
+            ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
+            [model yu_settingMake:^(ShellKitTableViewCellModel * this) {
+                this.data = arr2[i];
+            }];
+            [this.rowArrays addObject:model];
+        }
+
+    }];
+    
+    ShellKitSectionModel * section2 = [[ShellKitSectionModel alloc]init];
+    [section2 yu_settingMake:^(ShellKitSectionModel * this) {
+        
+        this.data = @"给我们提提意见";
+        this.isCanMultipleChoice = NO;
+        this.sectionHeight = 30 ;
+        this.rowCellStyleClass =  YUCheckBoxTextCell.class;
+        this.sectionCellStyleClass =SheKitSectionHeadView.class;
         ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
-        model.data = arr2[i];
-        [m2 addObject:model];
-    }
-    section1.rowArrays = m2 ;
-    section1.data = @"您的学历是什么？";
+        [model yu_settingMake:^(ShellKitTableViewCellModel * this) {
+                this.data = @"请输入你想写的话...";
+            }];
+        [this.rowArrays addObject:model];
+        
+    }];
     [_tableVie.tableViewDataSource.sectionArrays addObject:section0];
     [_tableVie.tableViewDataSource.sectionArrays addObject:section1];
+    [_tableVie.tableViewDataSource.sectionArrays addObject:section2];
     [_tableVie reloadData];
-    
-    
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

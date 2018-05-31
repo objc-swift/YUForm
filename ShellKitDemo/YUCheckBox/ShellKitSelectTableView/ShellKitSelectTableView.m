@@ -11,10 +11,12 @@
 @interface ShellKitSelectTableView()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) Class itemCellClass;
 @property (strong,nonatomic) Class sectionHeadClass ;
-@property (strong,nonatomic) NSDictionary * isSectionSelected ;
+@property (strong,nonatomic) NSMutableDictionary  *isRegClass;
+
 @end
+
 @implementation ShellKitSelectTableView
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if ( self ){
         [self setUpView];
@@ -23,7 +25,7 @@
     return self;
 }
 
-- (instancetype) initWithCoder:(NSCoder *)aDecoder{
+- (instancetype) initWithCoder:(NSCoder *)aDecoder {
     
     self = [super initWithCoder:aDecoder];
     if(self){
@@ -33,7 +35,7 @@
     return self;
 }
 
-- (void)layoutSubviews{
+- (void)layoutSubviews {
     
     [super layoutSubviews];
     [_tableView setFrame:self.bounds];
@@ -48,12 +50,11 @@
     _tableView.backgroundColor = [UIColor redColor];
     [self addSubview:_tableView];
 }
-
 - (void)initData{
     _tableViewDataSource = [[ShellKitSelectTableViewDataSource alloc]init];
-    _isSectionSelected = [[NSMutableDictionary alloc]init];
-}
+    _isRegClass = [[NSMutableDictionary alloc]init];
 
+}
 /**
  cls 为cell的class
  带xib的cell 也调用这个方法
@@ -62,8 +63,8 @@
  */
 
 - (void)registerViewClass:(Class)cls type:(RegClassType)type {
-   
-    if( type == RegClassTypeCell ){
+    
+    if( type == RegClassTypeCell ) {
         [self registerCell:cls];
         _itemCellClass = cls;
     }
@@ -108,7 +109,7 @@
     [_tableView reloadData];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return _tableViewDataSource.sectionArrays[section].rowArrays.count;
 }
@@ -118,30 +119,47 @@
     return _tableViewDataSource.sectionArrays.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ShellKitTableViewCellModel * model = _tableViewDataSource.sectionArrays[indexPath.section].rowArrays[indexPath.row];
     return model.cellHeight;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
     ShellKitSectionModel * model = _tableViewDataSource.sectionArrays[section];
     return model.sectionHeight;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
     return 0.01;
 }
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UITableViewHeaderFooterView<YUCheckBoxSectionDelegate> *  headView = nil;
+    ShellKitSectionModel * sectionModel = _tableViewDataSource.sectionArrays[section] ;
+    NSString * setcionID = NSStringFromClass(sectionModel.sectionCellStyleClass);
+    headView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:setcionID];
+    if(headView == nil){
+        [self registerHeaderFooter:sectionModel.sectionCellStyleClass];
+    }
+    [headView shell_setModel:sectionModel];
+    return headView;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ShellKitTableViewCellModel * model = _tableViewDataSource.sectionArrays[indexPath.section].rowArrays[indexPath.row];
+    ShellKitTableViewCellModel * model  = _tableViewDataSource.sectionArrays[indexPath.section].rowArrays[indexPath.row];
+    ShellKitSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
     model.rowNumber = indexPath.row;
-    NSString * cellId = NSStringFromClass(_itemCellClass);
+    NSString * cellId = NSStringFromClass(sectionModel.rowCellStyleClass);
     UITableViewCell<ShellKitSelectTableView > * cell= [tableView dequeueReusableCellWithIdentifier:cellId ];
+    if(cell == nil){
+        [self registerCell:sectionModel.rowCellStyleClass];
+        cell= [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    }
     [self reModifyCell:cell withModel:model];
     return cell;
 }
@@ -156,11 +174,11 @@
         NSAssert([cell respondsToSelector:@selector(shell_unSelectStatus)], @"Cell 必须实现 shell_unSelectStatus 方法");
         [cell shell_unSelectStatus];
     }
-    NSAssert([cell respondsToSelector:@selector(shell_setModel:)], @"Cell 必须实现 shell_setModel 方法");
-    [cell shell_setModel:model];
-    
+        NSAssert([cell respondsToSelector:@selector(shell_setModel:)], @"Cell 必须实现 shell_setModel 方法");
+        [cell shell_setModel:model];
 }
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
  
     ShellKitSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
     ShellKitTableViewCellModel * rowmModel = sectionModel.rowArrays[indexPath.row];
@@ -168,10 +186,10 @@
     NSMutableArray<NSIndexPath *> * updateIndexPaths = [[NSMutableArray alloc]initWithArray:@[indexPath]];
     
     // 点击后的状态
-    if( rowmModel.isSelected == YES) {
-        if( !sectionModel.isCanMultipleChoice ){
+    if( rowmModel.isSelected == YES ) {
+        if( !sectionModel.isCanMultipleChoice ) {
                 // 不可多选，将已选的取消选择，保证已经选择只存在一个
-            for (ShellKitTableViewCellModel * selectedRow in sectionModel.selectRowsSet){
+            for ( ShellKitTableViewCellModel * selectedRow in sectionModel.selectRowsSet ) {
                 selectedRow.isSelected = NO ;
                 NSIndexPath * unSelectIndexPath =[NSIndexPath indexPathForRow:selectedRow.rowNumber inSection:indexPath.section];
                 [updateIndexPaths addObject:unSelectIndexPath];
@@ -186,21 +204,10 @@
                       withRowAnimation:UITableViewRowAnimationNone];
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-   UITableViewHeaderFooterView<YUCheckBoxSectionDelegate> *  headView = nil;
-    ShellKitSectionModel * sectionModel = _tableViewDataSource.sectionArrays[section] ;
-    if( _sectionHeadClass  ){
-        NSString * setcionID = NSStringFromClass(_sectionHeadClass);
-        headView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:setcionID];
-        [headView shell_setModel:sectionModel];
-    }
-    return headView;
-}
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     
     return nil;
-    
 }
 @end

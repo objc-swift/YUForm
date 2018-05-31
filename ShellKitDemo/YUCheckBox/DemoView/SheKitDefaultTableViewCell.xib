@@ -27,7 +27,7 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s_ed.png" translatesAutoresizingMaskIntoConstraints="NO" id="KYp-Zk-JdY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KYp-Zk-JdY">
                                 <rect key="frame" x="288" y="6.5" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="Ber-pa-7xb"/>
@@ -61,7 +61,4 @@
             <point key="canvasLocation" x="-81" y="-125.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="s_ed.png" width="32" height="32"/>
-    </resources>
 </document>

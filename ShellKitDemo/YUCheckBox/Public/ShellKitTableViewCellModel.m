@@ -14,8 +14,10 @@
     if(self){
         _cellHeight  = UITableViewAutomaticDimension;
         _rowNumber = - 1;
-        
     }
     return self;
+}
+- (void)yu_settingMake:(void(^)(ShellKitTableViewCellModel *))block {
+    block(self);
 }
 @end

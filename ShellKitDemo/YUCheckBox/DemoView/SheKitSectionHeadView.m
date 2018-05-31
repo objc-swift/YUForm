@@ -18,7 +18,7 @@
 @implementation SheKitSectionHeadView
 
 
-- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier{
+- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     
     self = [super initWithReuseIdentifier:reuseIdentifier];
     
@@ -30,7 +30,7 @@
     
     return self;
 }
-- (void)shell_setModel:(ShellKitSectionModel *) model{
+- (void)shell_setModel:(ShellKitSectionModel *) model {
     [_titleLabel setText:model.data];
     
 }
