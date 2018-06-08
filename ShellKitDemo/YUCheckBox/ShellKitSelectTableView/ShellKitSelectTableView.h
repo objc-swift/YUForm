@@ -27,10 +27,9 @@ typedef NS_ENUM(NSUInteger, RegClassType) {
 @end
 
 @interface ShellKitSelectTableView : UIView
-@property (strong,nonatomic) ShellKitSelectTableViewDataSource * tableViewDataSource ;
+@property (strong,nonatomic) ShellKitSelectTableViewDataSource * tableViewDataSource;
 @property (strong,nonatomic) UITableView * tableView;
-
 - (void)reloadData ;
-- (void)registerViewClass:(Class)cls type:(RegClassType)type;
+
 
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C1AFD5F20BFEB3C0066BDA2 /* YUCheckBoxTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1AFD5D20BFEB3C0066BDA2 /* YUCheckBoxTextCell.m */; };
 		3C1AFD6020BFEB3C0066BDA2 /* YUCheckBoxTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C1AFD5E20BFEB3C0066BDA2 /* YUCheckBoxTextCell.xib */; };
+		3C863EA020CA838B00F112ED /* UITableView+YUTableViewAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C863E9F20CA838B00F112ED /* UITableView+YUTableViewAddition.m */; };
 		3C8D766A20B7A5960011D1BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D766920B7A5960011D1BA /* AppDelegate.m */; };
 		3C8D767220B7A5960011D1BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D767120B7A5960011D1BA /* Assets.xcassets */; };
 		3C8D767520B7A5960011D1BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D767320B7A5960011D1BA /* LaunchScreen.storyboard */; };
@@ -50,6 +51,8 @@
 		3C1AFD5C20BFEB3C0066BDA2 /* YUCheckBoxTextCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUCheckBoxTextCell.h; sourceTree = "<group>"; };
 		3C1AFD5D20BFEB3C0066BDA2 /* YUCheckBoxTextCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUCheckBoxTextCell.m; sourceTree = "<group>"; };
 		3C1AFD5E20BFEB3C0066BDA2 /* YUCheckBoxTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUCheckBoxTextCell.xib; sourceTree = "<group>"; };
+		3C863E9E20CA838B00F112ED /* UITableView+YUTableViewAddition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+YUTableViewAddition.h"; sourceTree = "<group>"; };
+		3C863E9F20CA838B00F112ED /* UITableView+YUTableViewAddition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+YUTableViewAddition.m"; sourceTree = "<group>"; };
 		3C8D766520B7A5950011D1BA /* ShellKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShellKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C8D766820B7A5950011D1BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C8D766920B7A5960011D1BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -113,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C863E9D20CA565100F112ED /* YUTableView+Addition */ = {
+			isa = PBXGroup;
+			children = (
+				3C863E9E20CA838B00F112ED /* UITableView+YUTableViewAddition.h */,
+				3C863E9F20CA838B00F112ED /* UITableView+YUTableViewAddition.m */,
+			);
+			path = "YUTableView+Addition";
+			sourceTree = "<group>";
+		};
 		3C8D765C20B7A5950011D1BA = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +150,7 @@
 		3C8D766720B7A5950011D1BA /* ShellKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3C863E9D20CA565100F112ED /* YUTableView+Addition */,
 				3C8D769A20B7A5AF0011D1BA /* YUCheckBox */,
 				3C8D766820B7A5950011D1BA /* AppDelegate.h */,
 				3C8D766920B7A5960011D1BA /* AppDelegate.m */,
@@ -396,6 +409,7 @@
 				3C8D76BD20BCF4BA0011D1BA /* SheKitSectionHeadView.m in Sources */,
 				3C8D76AC20BBB1D30011D1BA /* ViewController.m in Sources */,
 				3C8D767820B7A5960011D1BA /* main.m in Sources */,
+				3C863EA020CA838B00F112ED /* UITableView+YUTableViewAddition.m in Sources */,
 				3C8D76B220BBB8860011D1BA /* SheKitDefaultTableViewCell.m in Sources */,
 				3C8D766A20B7A5960011D1BA /* AppDelegate.m in Sources */,
 				3C8D769D20B7A64F0011D1BA /* ShellKitSelectTableView.m in Sources */,

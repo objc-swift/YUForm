@@ -11,7 +11,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *selectStatus;
 @property (weak, nonatomic) IBOutlet UIImageView *selectImg;
 @property (weak, nonatomic) IBOutlet UILabel *label;
-
 @end
 @implementation SheKitDefaultTableViewCell
 
@@ -19,10 +18,12 @@
     [super awakeFromNib];
     // Initialization code
 }
+
 - (void)shell_setModel:(ShellKitTableViewCellModel *)model {
     NSString * str = (NSString *) model.data;
     [_label setText:str];
 }
+
 - (void)shell_selectedStatus {
     [_selectStatus setText:@"选中"];
     [_selectStatus setTextColor:[UIColor redColor]];
@@ -31,14 +32,13 @@
     UIImage *image = [UIImage imageWithContentsOfFile:imgPath];
     [_selectImg setImage:image];
 }
+
 - (void)shell_unSelectStatus {
     [_selectStatus setText:@"未选中"];
     [_selectStatus setTextColor:[UIColor blackColor]];
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"ShellKitBundle" ofType:@"bundle"];
-    NSString *imgPath= [bundlePath stringByAppendingPathComponent:@"s@2x.png"];
-    UIImage *image = [UIImage imageWithContentsOfFile:imgPath];
     [_selectImg setImage:nil];
 }
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     
