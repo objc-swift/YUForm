@@ -7,15 +7,20 @@
 //
 
 #import "SheKitDefaultTableViewCell.h"
+
 @interface SheKitDefaultTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *selectStatus;
 @property (weak, nonatomic) IBOutlet UIImageView *selectImg;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @end
 @implementation SheKitDefaultTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    _bgView.layer.masksToBounds = YES;
+    _bgView.layer.cornerRadius = 5.0 ;
+    
     // Initialization code
 }
 
@@ -26,7 +31,7 @@
 
 - (void)shell_selectedStatus {
     [_selectStatus setText:@"选中"];
-    [_selectStatus setTextColor:[UIColor redColor]];
+
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"ShellKitBundle" ofType:@"bundle"];
     NSString *imgPath= [bundlePath stringByAppendingPathComponent:@"s_ed@2x.png"];
     UIImage *image = [UIImage imageWithContentsOfFile:imgPath];
@@ -35,7 +40,7 @@
 
 - (void)shell_unSelectStatus {
     [_selectStatus setText:@"未选中"];
-    [_selectStatus setTextColor:[UIColor blackColor]];
+
     [_selectImg setImage:nil];
 }
 

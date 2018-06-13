@@ -21,6 +21,12 @@ typedef NS_ENUM(NSUInteger, RegClassType) {
 - (void)shell_unSelectStatus;
 @end
 
+@protocol YUCheckBoxRowTextCellDelegate<NSObject>
+@required
+- (UIView *)inputView;
+@end
+
+// sectionView 要实现我
 @protocol YUCheckBoxSectionDelegate<NSObject>
 @required
 - (void)shell_setModel:(ShellKitSectionModel *) model;

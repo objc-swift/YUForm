@@ -188,7 +188,7 @@
 			children = (
 				3C8D76CA20BD573E0011D1BA /* ShellKitBundle.bundle */,
 				3C8D76B420BBB9700011D1BA /* SheKit.h */,
-				3C8D76AE20BBB6F30011D1BA /* DemoView */,
+				3C8D76AE20BBB6F30011D1BA /* your custom view -> here */,
 				3C8D76A220BB9AFE0011D1BA /* Public */,
 				3C8D769E20B7A6610011D1BA /* ShellKitSelectTableView */,
 			);
@@ -217,7 +217,7 @@
 			path = Public;
 			sourceTree = "<group>";
 		};
-		3C8D76AE20BBB6F30011D1BA /* DemoView */ = {
+		3C8D76AE20BBB6F30011D1BA /* your custom view -> here */ = {
 			isa = PBXGroup;
 			children = (
 				3C8D76AF20BBB8860011D1BA /* SheKitDefaultTableViewCell.h */,
@@ -230,7 +230,7 @@
 				3C1AFD5D20BFEB3C0066BDA2 /* YUCheckBoxTextCell.m */,
 				3C1AFD5E20BFEB3C0066BDA2 /* YUCheckBoxTextCell.xib */,
 			);
-			path = DemoView;
+			path = "your custom view -> here";
 			sourceTree = "<group>";
 		};
 		5A6396038188B942F87B1D10 /* Frameworks */ = {

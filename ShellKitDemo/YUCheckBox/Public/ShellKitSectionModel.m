@@ -20,13 +20,13 @@
     block(self);
 }
 
-- ( NSMutableArray<ShellKitTableViewCellModel *> *) rowArrays{
+- ( NSMutableArray<ShellKitTableViewCellModel *> *) rowArrays {
     if(_rowArrays)return _rowArrays;
     _rowArrays = [[NSMutableArray<ShellKitTableViewCellModel *> alloc]init];
     return _rowArrays;
 }
 
-- (id)init{
+- (id)init {
     
     self = [super init];
     if(self){

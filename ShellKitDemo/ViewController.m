@@ -28,7 +28,7 @@
     [section0 yu_settingMake:^(ShellKitSectionModel * this) {
         this.data = @"您现在月薪是多少？";
         this.isCanMultipleChoice = YES;
-        this.sectionHeight = 30 ;
+        this.sectionHeight = 45 ;
         this.rowCellStyleClass =  SheKitDefaultTableViewCell.class;
         this.sectionCellStyleClass = SheKitSectionHeadView.class;
         NSMutableArray * m = [[NSMutableArray alloc]init];
@@ -45,9 +45,9 @@
     ShellKitSectionModel * section1 = [[ShellKitSectionModel alloc]init];
     [section1 yu_settingMake:^(ShellKitSectionModel * this) {
         
-        this.data = @"您现在月薪是多少？";
+        this.data = @"您现在学历是什么？";
         this.isCanMultipleChoice = NO;
-        this.sectionHeight = 30 ;
+        this.sectionHeight = 45 ;
         this.rowCellStyleClass =  SheKitDefaultTableViewCell.class;
         this.sectionCellStyleClass = SheKitSectionHeadView.class;
         for(int i = 0 ; i < 4 ; i ++ ){
@@ -65,7 +65,7 @@
         
         this.data = @"给我们提提意见";
         this.isCanMultipleChoice = NO;
-        this.sectionHeight = 30 ;
+        this.sectionHeight = 45 ;
         this.rowCellStyleClass =  YUCheckBoxTextCell.class;
         this.sectionCellStyleClass =SheKitSectionHeadView.class;
         ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
@@ -73,7 +73,6 @@
                 this.data = @"请输入你想写的话...";
             }];
         [this.rowArrays addObject:model];
-        
     }];
     [_tableVie.tableViewDataSource.sectionArrays addObject:section0];
     [_tableVie.tableViewDataSource.sectionArrays addObject:section1];
