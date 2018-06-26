@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, RegClassType) {
     RegClassTypeHeadView = 2
 };
 
+//带选择cell
 @protocol ShellKitSelectTableView<NSObject>
 @required
 - (void)shell_setModel:(ShellKitTableViewCellModel *) model;
@@ -23,7 +24,8 @@ typedef NS_ENUM(NSUInteger, RegClassType) {
 
 @protocol YUCheckBoxRowTextCellDelegate<NSObject>
 @required
-- (UIView *)inputView;
+- (void)shell_setModel:(ShellKitTableViewCellModel *) model;
+- (UIView *)shell_inputView ;
 @end
 
 // sectionView 要实现我

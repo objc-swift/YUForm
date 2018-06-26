@@ -34,7 +34,6 @@
     }
     return self;
 }
-
 - (void)layoutSubviews {
     
     [super layoutSubviews];
@@ -120,7 +119,7 @@
     ShellKitSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
     model.rowNumber = indexPath.row;
     NSString * cellId = NSStringFromClass(sectionModel.rowCellStyleClass);
-    UITableViewCell<ShellKitSelectTableView > * cell= [tableView dequeueReusableCellWithIdentifier:cellId ];
+    UITableViewCell * cell= [tableView dequeueReusableCellWithIdentifier:cellId ];
     if(cell == nil)
     {
         [tableView registerCell:sectionModel.rowCellStyleClass];
@@ -172,7 +171,7 @@
         [sectionModel.selectRowsSet removeObject:rowmModel];
     }
     [_tableView reloadRowsAtIndexPaths:updateIndexPaths
-                      withRowAnimation:UITableViewRowAnimationNone];
+                      withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section

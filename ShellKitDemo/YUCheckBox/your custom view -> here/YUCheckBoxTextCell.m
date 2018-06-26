@@ -7,19 +7,23 @@
 //
 
 #import "YUCheckBoxTextCell.h"
+@interface YUCheckBoxTextCell()
 
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
+@end
 @implementation YUCheckBoxTextCell
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
 }
-- (void)shell_setModel:(ShellKitTableViewCellModel *) model{
+- (void)shell_setModel:(ShellKitTableViewCellModel *) model {
+    
     
 }
-- (void)shell_selectedStatus{
+- (UIView *)shell_inputView {
     
-}
-- (void)shell_unSelectStatus{
+    return _textField;
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

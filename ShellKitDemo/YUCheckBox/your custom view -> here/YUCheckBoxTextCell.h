@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SheKit.h"
-@interface YUCheckBoxTextCell : UITableViewCell<ShellKitSelectTableView>
+@interface YUCheckBoxTextCell : UITableViewCell<YUCheckBoxRowTextCellDelegate>
 
 @end

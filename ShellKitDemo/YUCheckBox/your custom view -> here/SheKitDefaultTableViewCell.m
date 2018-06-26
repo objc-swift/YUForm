@@ -40,7 +40,6 @@
 
 - (void)shell_unSelectStatus {
     [_selectStatus setText:@"未选中"];
-
     [_selectImg setImage:nil];
 }
 
