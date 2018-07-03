@@ -31,7 +31,6 @@
 
 - (void)shell_selectedStatus {
     [_selectStatus setText:@"选中"];
-
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"ShellKitBundle" ofType:@"bundle"];
     NSString *imgPath= [bundlePath stringByAppendingPathComponent:@"s_ed@2x.png"];
     UIImage *image = [UIImage imageWithContentsOfFile:imgPath];

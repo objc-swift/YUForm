@@ -39,4 +39,6 @@
     BOOL isNibExist = [[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@.nib",[[NSBundle mainBundle]resourcePath],className]];
     return isNibExist;
 }
+
+
 @end

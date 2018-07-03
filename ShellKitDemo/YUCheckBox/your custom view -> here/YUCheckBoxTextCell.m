@@ -10,6 +10,7 @@
 @interface YUCheckBoxTextCell()
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (strong,nonatomic) UITextView *tx;
 
 @end
 @implementation YUCheckBoxTextCell

@@ -11,7 +11,7 @@
 @implementation ShellKitTableViewCellModel
 - (id)init{
     self = [super init];
-    if(self){
+    if( self ){
         _cellHeight  = UITableViewAutomaticDimension;
         _rowNumber = - 1;
     }

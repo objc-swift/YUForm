@@ -11,9 +11,7 @@
 
 
 @interface ShellKitSectionModel()
-
 @end
-
 @implementation ShellKitSectionModel
 
 - (void) yu_settingMake:(void(^)(ShellKitSectionModel *))block {

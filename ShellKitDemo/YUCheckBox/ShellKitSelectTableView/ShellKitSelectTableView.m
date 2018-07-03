@@ -7,9 +7,10 @@
 //
 
 #import "SheKit.h"
-
-@interface ShellKitSelectTableView()<UITableViewDelegate,UITableViewDataSource>
+@interface ShellKitSelectTableView()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,UITextFieldDelegate>
 @property (strong,nonatomic) NSMutableDictionary  *isRegClass;
+@property (strong,nonatomic) UIView *curEnditingView;
+
 @end
 @implementation ShellKitSelectTableView
 - (instancetype)initWithFrame:(CGRect)frame
@@ -19,6 +20,8 @@
     {
         [self setUpView];
         [self initData];
+        [self startKeyboardObserve];
+        
     }
     return self;
 }
@@ -31,6 +34,7 @@
     {
          [self setUpView];
          [self initData];
+         [self startKeyboardObserve];
     }
     return self;
 }
@@ -57,14 +61,49 @@
 
 }
 
-- (BOOL)isNibExist:(Class)cls
-{
+#pragma mark keyboard
+- (void) stopKeyboardObserve{
     
-    NSString *className =NSStringFromClass(cls);
-    BOOL isNibExist = [[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@.nib",[[NSBundle mainBundle]resourcePath],className]];
-    return isNibExist;
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+
 }
 
+- (void) startKeyboardObserve{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(transformView:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+- (void)transformView:(NSNotification *)aNSNotification
+{
+
+    
+    //获取键盘弹出前的Rect
+    NSValue *keyBoardBeginBounds=[[aNSNotification userInfo]objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect beginRect=[keyBoardBeginBounds CGRectValue];
+    
+    //获取键盘弹出后的Rect
+    NSValue *keyBoardEndBounds=[[aNSNotification userInfo]objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect  endRect=[keyBoardEndBounds CGRectValue];
+    
+    //获取键盘位置变化前后纵坐标Y的变化值
+    CGFloat deltaY=endRect.origin.y-beginRect.origin.y;
+    
+    NSLog(@"看看这个变化的Y值:%f",deltaY);
+   
+    
+}
+#pragma mark textField/text
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    
+    _curEnditingView = textField;
+    
+    return YES;
+}
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    _curEnditingView = textView;
+    return YES;
+    
+}
 #pragma mark tableview
 - (void)reloadData
 {
@@ -124,25 +163,17 @@
     {
         [tableView registerCell:sectionModel.rowCellStyleClass];
         cell= [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+        if( [cell conformsToProtocol:@protocol(YUCheckBoxRowTextCellDelegate)] ) {
+            UIView * inputView =  [cell performSelector:@selector(shell_inputView)];
+            if( [inputView isKindOfClass:[UITextView class]] ) {
+                ((UITextView *)inputView).delegate = self ;
+            }else if( [inputView isKindOfClass:[UITextField class]] ) {
+                ((UITextField *)inputView).delegate = self ;
+            }
+        }
     }
     [self reModifyCell:cell withModel:model];
     return cell;
-}
-
-- (void)reModifyCell:(UITableViewCell <ShellKitSelectTableView > * ) cell
-        withModel:(ShellKitTableViewCellModel *)model
-{
-    if(model.isSelected)
-    {
-        NSAssert([cell respondsToSelector:@selector(shell_selectedStatus)], @"Cell 必须实现 shell_selectedStatus 方法");
-        [cell shell_selectedStatus];
-    }else
-    {
-        NSAssert([cell respondsToSelector:@selector(shell_unSelectStatus)], @"Cell 必须实现 shell_unSelectStatus 方法");
-        [cell shell_unSelectStatus];
-    }
-        NSAssert([cell respondsToSelector:@selector(shell_setModel:)], @"Cell 必须实现 shell_setModel 方法");
-        [cell shell_setModel:model];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -171,11 +202,37 @@
         [sectionModel.selectRowsSet removeObject:rowmModel];
     }
     [_tableView reloadRowsAtIndexPaths:updateIndexPaths
-                      withRowAnimation:UITableViewRowAnimationFade];
+                      withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     return nil;
+}
+#pragma mark logic
+- (void)reModifyCell:(UITableViewCell  * ) cell
+           withModel:(ShellKitTableViewCellModel *)model
+{
+    if(model.isSelected)
+    {
+        if( [cell respondsToSelector:@selector(shell_selectedStatus)] ){
+            [cell performSelector:@selector(shell_selectedStatus)];
+        }
+    }else
+    {
+        if( [cell respondsToSelector:@selector(shell_unSelectStatus)] ) {
+            
+            [cell performSelector:@selector(shell_unSelectStatus)];
+        }
+    }
+    if( [cell respondsToSelector:@selector(shell_setModel:)] ) {
+        [cell performSelector:@selector(shell_setModel:) withObject:model];
+    }
+}
+
+
+- (void)dealloc {
+    [self stopKeyboardObserve];
+    
 }
 @end
