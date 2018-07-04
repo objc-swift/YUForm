@@ -74,8 +74,6 @@
 
 - (void)transformView:(NSNotification *)aNSNotification
 {
-
-    
     //获取键盘弹出前的Rect
     NSValue *keyBoardBeginBounds=[[aNSNotification userInfo]objectForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect beginRect=[keyBoardBeginBounds CGRectValue];
@@ -88,19 +86,35 @@
     CGFloat deltaY=endRect.origin.y-beginRect.origin.y;
     
     NSLog(@"看看这个变化的Y值:%f",deltaY);
-   
     
+    if( _curEnditingView ) {
+        
+        CGPoint txt_off = [_curEnditingView convertPoint:CGPointMake(0, 0) toView:_tableView];
+        CGPoint keyboard_in_tbviw = [self.window convertPoint:CGPointMake(0, endRect.origin.y) toView:_tableView];
+        CGFloat py = 15;
+        CGFloat pc =(txt_off.y - keyboard_in_tbviw.y );
+        CGFloat k = (txt_off.y - keyboard_in_tbviw.y ) + _curEnditingView.frame.size.height +py;
+        _tableView.contentOffset = CGPointMake(0, _tableView.contentOffset.y +k);
+    }
 }
 #pragma mark textField/text
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     
     _curEnditingView = textField;
-    
     return YES;
 }
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     _curEnditingView = textView;
+    return YES;
+    
+}
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    
+    return YES;
+}
+-(BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    
     return YES;
     
 }
