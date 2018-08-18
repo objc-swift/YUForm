@@ -9,10 +9,33 @@
 #import "SheKit.h"
 @interface ShellKitSelectTableView()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,UITextFieldDelegate>
 @property (strong,nonatomic) NSMutableDictionary  *isRegClass;
-@property (strong,nonatomic) UIView *curEnditingView;
+@property (strong,nonatomic) UIView *curEnditingView; // 当前编辑的view
+@property (strong,nonatomic) UIToolbar *toolbar;
+@property (assign,nonatomic) CGFloat moreHieght ;
 
 @end
 @implementation ShellKitSelectTableView
+
+
+#pragma mark lazy
+
+- (UIToolbar *)toolbar {
+    if( !_toolbar ) {
+        UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 44)];
+        UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        UIBarButtonItem *bar = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(textFieldDone:)];
+        toolbar.items = @[space, bar];
+        _toolbar = toolbar;
+    }
+    return _toolbar;
+}
+#pragma mark event
+
+- (void)textFieldDone:(id)sender {
+    [self.curEnditingView endEditing:YES];
+}
+
+#pragma mark system
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -28,7 +51,6 @@
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder
 {
-    
     self = [super initWithCoder:aDecoder];
     if(self)
     {
@@ -41,16 +63,20 @@
 - (void)layoutSubviews {
     
     [super layoutSubviews];
-    [_tableView setFrame:self.bounds];
-    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView setFrame:self.bounds];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
 }
 
+#pragma mark init
 - (void)setUpView
 {
     _tableView = [[UITableView alloc]initWithFrame:self.bounds style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self ;
     _tableView.backgroundColor = [UIColor redColor];
+
+    
     [self addSubview:_tableView];
 }
 
@@ -58,14 +84,12 @@
 {
     _tableViewDataSource = [[ShellKitSelectTableViewDataSource alloc]init];
     _isRegClass = [[NSMutableDictionary alloc]init];
-
+    _moreHieght= 0 ;
+    
 }
-
 #pragma mark keyboard
 - (void) stopKeyboardObserve{
-    
     [[NSNotificationCenter defaultCenter]removeObserver:self];
-
 }
 
 - (void) startKeyboardObserve{
@@ -77,46 +101,43 @@
     //获取键盘弹出前的Rect
     NSValue *keyBoardBeginBounds=[[aNSNotification userInfo]objectForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect beginRect=[keyBoardBeginBounds CGRectValue];
-    
     //获取键盘弹出后的Rect
     NSValue *keyBoardEndBounds=[[aNSNotification userInfo]objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect  endRect=[keyBoardEndBounds CGRectValue];
-    
     //获取键盘位置变化前后纵坐标Y的变化值
     CGFloat deltaY=endRect.origin.y-beginRect.origin.y;
-    
     NSLog(@"看看这个变化的Y值:%f",deltaY);
     
     if( _curEnditingView ) {
         
         CGPoint txt_off = [_curEnditingView convertPoint:CGPointMake(0, 0) toView:_tableView];
-        CGPoint keyboard_in_tbviw = [self.window convertPoint:CGPointMake(0, endRect.origin.y) toView:_tableView];
+        CGPoint keyboard_in_tbviw = [self.window convertPoint:CGPointMake(0, endRect.origin.y) toView:_tableView]; //键盘在tableview中的origin-y
         CGFloat py = 15;
         CGFloat pc =(txt_off.y - keyboard_in_tbviw.y );
         CGFloat k = (txt_off.y - keyboard_in_tbviw.y ) + _curEnditingView.frame.size.height +py;
+       
         _tableView.contentOffset = CGPointMake(0, _tableView.contentOffset.y +k);
+        _tableView.contentSize= CGSizeMake(_tableView.contentSize.width, _tableView.contentSize.height + deltaY * (-1));
     }
 }
-#pragma mark textField/text
+
+#pragma mark textField/text delegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    
     _curEnditingView = textField;
     return YES;
 }
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     _curEnditingView = textView;
     return YES;
-    
 }
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     
     return YES;
 }
--(BOOL)textViewShouldEndEditing:(UITextView *)textView {
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
     
     return YES;
-    
 }
 #pragma mark tableview
 - (void)reloadData
@@ -160,6 +181,7 @@
     if(headView == nil)
     {
         [tableView registerHeaderFooter:sectionModel.sectionCellStyleClass];
+        headView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:setcionID];
     }
     [headView shell_setModel:sectionModel];
     return headView;
@@ -168,6 +190,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     ShellKitTableViewCellModel * model  = _tableViewDataSource.sectionArrays[indexPath.section].rowArrays[indexPath.row];
     ShellKitSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
     model.rowNumber = indexPath.row;
@@ -175,19 +198,41 @@
     UITableViewCell * cell= [tableView dequeueReusableCellWithIdentifier:cellId ];
     if(cell == nil)
     {
+        // cell的class尚未注册，无法通过 dequeueReusableCellWithIdentifier:cellId 读取cell
+        // 注册之后，dequeueReusableCellWithIdentifier:cellId会重新创建或则从复用队列中读取。
         [tableView registerCell:sectionModel.rowCellStyleClass];
         cell= [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-        if( [cell conformsToProtocol:@protocol(YUCheckBoxRowTextCellDelegate)] ) {
-            UIView * inputView =  [cell performSelector:@selector(shell_inputView)];
-            if( [inputView isKindOfClass:[UITextView class]] ) {
-                ((UITextView *)inputView).delegate = self ;
-            }else if( [inputView isKindOfClass:[UITextField class]] ) {
-                ((UITextField *)inputView).delegate = self ;
+    }
+    if( [cell conformsToProtocol:@protocol(YUCheckBoxRowTextCellDelegate)]) {
+        UIView * inputView =  [cell performSelector:@selector(shell_inputView)];
+        if( [inputView isKindOfClass:[UITextView class]] ) {
+            // 对于UITextView ～ 处理
+            UITextView *textView = ((UITextView *)inputView);
+            if( textView.delegate == nil ) {
+                textView.delegate = self ;
+                textView.inputAccessoryView = self.toolbar;
+            }
+        }else if( [inputView isKindOfClass:[UITextField class]] ) {
+            // 对于UITextField ～ 处理
+            UITextField *textField = ((UITextField *)inputView);
+            if( textField.delegate == nil ) {
+                textField.delegate = self;
+                textField.inputAccessoryView = self.toolbar;
             }
         }
     }
     [self reModifyCell:cell withModel:model];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    ShellKitSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
+    ShellKitTableViewCellModel * rowmModel = sectionModel.rowArrays[indexPath.row];
+    /** cell缓存高度  */
+    if( rowmModel.cellHeight == UITableViewAutomaticDimension && cell.frame.size.height > 0  ) {
+        rowmModel.cellHeight = cell.frame.size.height;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -215,15 +260,14 @@
     {
         [sectionModel.selectRowsSet removeObject:rowmModel];
     }
-    [_tableView reloadRowsAtIndexPaths:updateIndexPaths
-                      withRowAnimation:UITableViewRowAnimationNone];
+    [_tableView reloadData];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     return nil;
 }
-#pragma mark logic
+#pragma mark view logic
 - (void)reModifyCell:(UITableViewCell  * ) cell
            withModel:(ShellKitTableViewCellModel *)model
 {
@@ -244,6 +288,9 @@
     }
 }
 
+- (int)sign:(CGFloat)x {
+    return x!=0? x/x:0 ;
+}
 
 - (void)dealloc {
     [self stopKeyboardObserve];

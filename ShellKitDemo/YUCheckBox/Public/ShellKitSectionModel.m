@@ -8,8 +8,8 @@
 
 #import "ShellKitSectionModel.h"
 #import "ShellKitTableViewCellModel.h"
-
-
+#import "SheKitDefaultTableViewCell.h"
+#import "SheKitSectionHeadView.h"
 @interface ShellKitSectionModel()
 @end
 @implementation ShellKitSectionModel
@@ -29,7 +29,24 @@
     self = [super init];
     if(self){
         _selectRowsSet = [[NSMutableSet <ShellKitTableViewCellModel *> alloc]init];
+        _sectionHeight = UITableViewAutomaticDimension;
+        
     }
     return self;
+}
+
+- (Class)rowCellStyleClass {
+    if( !_rowCellStyleClass ) {
+        // 默认类型
+        _rowCellStyleClass = SheKitDefaultTableViewCell.class;
+    }
+    return _rowCellStyleClass;
+}
+
+- (Class)sectionCellStyleClass {
+    if( !_sectionCellStyleClass ) {
+        _sectionCellStyleClass = SheKitSectionHeadView.class;
+    }
+    return _sectionCellStyleClass;
 }
 @end
