@@ -61,7 +61,7 @@
                 <outlet property="selectImg" destination="KYp-Zk-JdY" id="B1h-kG-2Jx"/>
                 <outlet property="selectStatus" destination="TP9-eJ-aEV" id="ggv-gJ-XsI"/>
             </connections>
-            <point key="canvasLocation" x="-174" y="-79"/>
+            <point key="canvasLocation" x="-226" y="21"/>
         </tableViewCell>
     </objects>
 </document>

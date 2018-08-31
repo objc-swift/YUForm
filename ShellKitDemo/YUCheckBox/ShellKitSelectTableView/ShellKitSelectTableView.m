@@ -261,6 +261,7 @@
         [sectionModel.selectRowsSet removeObject:rowmModel];
     }
     [_tableView reloadData];
+    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
