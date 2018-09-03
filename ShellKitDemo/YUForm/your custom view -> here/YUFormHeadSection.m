@@ -6,12 +6,12 @@
 //  Copyright © 2018年 jimi. All rights reserved.
 //
 
-#import "SheKitSectionHeadView.h"
+#import "YUFormHeadSection.h"
 
-@interface  SheKitSectionHeadView()
+@interface  YUFormHeadSection()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end
-@implementation SheKitSectionHeadView
+@implementation YUFormHeadSection
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithReuseIdentifier:reuseIdentifier];
     if (self) {
@@ -19,10 +19,11 @@
     }
     return self;
 }
-- (void)shell_setModel:(ShellKitSectionModel *) model {
+- (void)shell_setModel:(YUFormSectionModel *) model {
     [_titleLabel setText:model.data];
 }
 - (void)setUp{
+    self.contentView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1];
     
 }
 

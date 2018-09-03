@@ -6,15 +6,15 @@
 //  Copyright © 2018年 jimi. All rights reserved.
 //
 
-#import "ShellKitSectionModel.h"
+#import "YUFormSectionModel.h"
 #import "ShellKitTableViewCellModel.h"
-#import "SheKitDefaultTableViewCell.h"
-#import "SheKitSectionHeadView.h"
-@interface ShellKitSectionModel()
+#import "YUFormChoiceItemCell.h"
+#import "YUFormHeadSection.h"
+@interface YUFormSectionModel()
 @end
-@implementation ShellKitSectionModel
+@implementation YUFormSectionModel
 
-- (void) yu_settingMake:(void(^)(ShellKitSectionModel *))block {
+- (void) yu_settingMake:(void(^)(YUFormSectionModel *))block {
     block(self);
 }
 
@@ -38,14 +38,14 @@
 - (Class)rowCellStyleClass {
     if( !_rowCellStyleClass ) {
         // 默认类型
-        _rowCellStyleClass = SheKitDefaultTableViewCell.class;
+        _rowCellStyleClass = YUFormChoiceItemCell.class;
     }
     return _rowCellStyleClass;
 }
 
 - (Class)sectionCellStyleClass {
     if( !_sectionCellStyleClass ) {
-        _sectionCellStyleClass = SheKitSectionHeadView.class;
+        _sectionCellStyleClass = YUFormHeadSection.class;
     }
     return _sectionCellStyleClass;
 }

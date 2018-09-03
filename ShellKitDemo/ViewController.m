@@ -8,12 +8,13 @@
 
 #import "ViewController.h"
 #import "SheKit.h"
-#import "SheKitDefaultTableViewCell.h"
-#import "SheKitSectionHeadView.h"
-#import "YUCheckBoxTextCell.h"
-#import "YUCheckBoxTextViewCell.h"
+#import "YUFormChoiceItemCell.h"
+#import "YUFormHeadSection.h"
+#import "YUFormTextViewCell.h"
+
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet ShellKitSelectTableView *tableVie;
+@property (weak, nonatomic) IBOutlet YUForm *tableVie;
+
 @property (weak, nonatomic) IBOutlet UIButton *ss;
 @end
 
@@ -21,14 +22,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    __weak typeof (self) se =self;
+    
+ 
+    
     NSArray * arr =@[@"A、含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质含蛋白质",@"B、含脂肪",@"C、含糖 ",@"D、水分不够"];
     NSArray * arr2 =@[@"A、法治生活",@"B、法治国家",@"C、法治政府",@"D、法治社会"];
-    ShellKitSectionModel * section0 = [[ShellKitSectionModel alloc]init];
-    [section0 yu_settingMake:^(ShellKitSectionModel * this) {
+    YUFormSectionModel * section0 = [[YUFormSectionModel alloc]init];
+    [section0 yu_settingMake:^(YUFormSectionModel * this) {
         this.data = @"  1.吃冰淇淋不解渴主要是因为它";
-        this.rowCellStyleClass =  SheKitDefaultTableViewCell.class;
-        this.sectionCellStyleClass = SheKitSectionHeadView.class;
+        this.rowCellStyleClass =  YUFormChoiceItemCell.class;
+        this.sectionCellStyleClass = YUFormHeadSection.class;
         NSMutableArray * m = [[NSMutableArray alloc]init];
         for(int i = 0 ; i < 4 ; i ++ ){
             ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
@@ -39,13 +43,13 @@
         }
         this.rowArrays = m;
     }];
-    ShellKitSectionModel * section1 = [[ShellKitSectionModel alloc]init];
-    [section1 yu_settingMake:^(ShellKitSectionModel * this) {
+    YUFormSectionModel * section1 = [[YUFormSectionModel alloc]init];
+    [section1 yu_settingMake:^(YUFormSectionModel * this) {
         this.data = @"  2.科学立法、严格执法、公正司法、全民守法深入推进，( )、( )、( )建设相互促进，中国特色社会主义法治体系日益完善，全社会法治观念明显增强。  ";
         this.isCanMultipleChoice = YES;
 
-        this.rowCellStyleClass =  SheKitDefaultTableViewCell.class;
-        this.sectionCellStyleClass = SheKitSectionHeadView.class;
+        this.rowCellStyleClass =  YUFormChoiceItemCell.class;
+        this.sectionCellStyleClass = YUFormHeadSection.class;
         for(int i = 0 ; i < 4 ; i ++ ){
             ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
             [model yu_settingMake:^(ShellKitTableViewCellModel * this) {
@@ -53,17 +57,13 @@
             }];
             [this.rowArrays addObject:model];
         }
-
     }];
-    
-    ShellKitSectionModel * section2 = [[ShellKitSectionModel alloc]init];
-    [section2 yu_settingMake:^(ShellKitSectionModel * this) {
-        
+    YUFormSectionModel * section2 = [[YUFormSectionModel alloc]init];
+    [section2 yu_settingMake:^(YUFormSectionModel * this) {
         this.data = @"性别";
         this.isCanMultipleChoice = NO;
-    
-        this.rowCellStyleClass =  SheKitDefaultTableViewCell.class;
-        this.sectionCellStyleClass =SheKitSectionHeadView.class;
+        this.rowCellStyleClass =  YUFormChoiceItemCell.class;
+        this.sectionCellStyleClass =YUFormHeadSection.class;
         ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
         [model yu_settingMake:^(ShellKitTableViewCellModel * this) {
                 this.data = @"男";
@@ -76,13 +76,13 @@
         [this.rowArrays addObject:model1];
     }];
     
-    ShellKitSectionModel * section3 = [[ShellKitSectionModel alloc]init];
-    [section3 yu_settingMake:^(ShellKitSectionModel * this) {
+    YUFormSectionModel * section3 = [[YUFormSectionModel alloc]init];
+    [section3 yu_settingMake:^(YUFormSectionModel * this) {
         
         this.data = @"  给下面这则新闻拟一个恰当的标题。（不超过15个字）（3分）\n\n  据华西都市报，地震发生时，芦山双石镇33岁的产妇朱开慧眼见房顶不断砸下瓦砾、石块，她拉着11岁的儿子躲到床下，一直跪着，身体弓起，将床撑起，最大限度保证“两个孩子”的安全…昨晚，被送往成都的朱开慧，剖腹产下男孩，母子平安!";
         this.isCanMultipleChoice = NO;
-        this.rowCellStyleClass =  YUCheckBoxTextViewCell.class;
-        this.sectionCellStyleClass =SheKitSectionHeadView.class;
+        this.rowCellStyleClass =  YUFormTextViewCell.class;
+        this.sectionCellStyleClass =YUFormHeadSection.class;
         ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
         [model yu_settingMake:^(ShellKitTableViewCellModel * this) {
             this.data = @"请输入你想写的话...";
@@ -90,13 +90,13 @@
         [this.rowArrays addObject:model];
     }];
     
-    ShellKitSectionModel * section4 = [[ShellKitSectionModel alloc]init];
-    [section4 yu_settingMake:^(ShellKitSectionModel * this) {
+    YUFormSectionModel * section4 = [[YUFormSectionModel alloc]init];
+    [section4 yu_settingMake:^(YUFormSectionModel * this) {
         
         this.data = @"  给下面这则新闻拟一个恰当的标题。（不超过15个字）（3分）\n\n  据华西都市报，地震发生时，芦山双石镇33岁的产妇朱开慧眼见房顶不断砸下瓦砾、石块，她拉着11岁的儿子躲到床下";
         this.isCanMultipleChoice = NO;
-        this.rowCellStyleClass =  YUCheckBoxTextViewCell.class;
-        this.sectionCellStyleClass =SheKitSectionHeadView.class;
+        this.rowCellStyleClass =  YUFormTextViewCell.class;
+        this.sectionCellStyleClass =YUFormHeadSection.class;
         ShellKitTableViewCellModel * model = [[ShellKitTableViewCellModel alloc]init];
         [model yu_settingMake:^(ShellKitTableViewCellModel * this) {
             this.data = @"请输入你想写的话...";

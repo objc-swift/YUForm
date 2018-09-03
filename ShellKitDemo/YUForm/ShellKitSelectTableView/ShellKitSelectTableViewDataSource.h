@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class ShellKitSectionModel;
+@class YUFormSectionModel;
 
 @protocol ShellKitSelectTableViewDataSourceDelegate<NSObject>
 
@@ -18,6 +18,6 @@
 
 @interface ShellKitSelectTableViewDataSource : NSObject
 
-@property (strong,nonatomic) NSMutableArray<ShellKitSectionModel *> *sectionArrays ;
+@property (strong,nonatomic) NSMutableArray<YUFormSectionModel *> *sectionArrays ;
 
 @end

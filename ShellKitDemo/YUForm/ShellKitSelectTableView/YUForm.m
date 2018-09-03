@@ -6,15 +6,15 @@
 //  Copyright © 2018年 jimi. All rights reserved.
 //
 
-#import "SheKit.h"
-@interface ShellKitSelectTableView()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,UITextFieldDelegate>
+#import "YUForm.h"
+@interface YUForm()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,UITextFieldDelegate>
 @property (strong,nonatomic) NSMutableDictionary  *isRegClass;
 @property (strong,nonatomic) UIView *curEnditingView; // 当前编辑的view
 @property (strong,nonatomic) UIToolbar *toolbar;
 @property (assign,nonatomic) CGFloat moreHieght ;
 
 @end
-@implementation ShellKitSelectTableView
+@implementation YUForm
 
 
 #pragma mark lazy
@@ -44,7 +44,6 @@
         [self setUpView];
         [self initData];
         [self startKeyboardObserve];
-        
     }
     return self;
 }
@@ -60,6 +59,7 @@
     }
     return self;
 }
+
 - (void)layoutSubviews {
     
     [super layoutSubviews];
@@ -74,9 +74,7 @@
     _tableView = [[UITableView alloc]initWithFrame:self.bounds style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self ;
-    _tableView.backgroundColor = [UIColor redColor];
-
-    
+    _tableView.backgroundColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1];
     [self addSubview:_tableView];
 }
 
@@ -106,7 +104,6 @@
     CGRect  endRect=[keyBoardEndBounds CGRectValue];
     //获取键盘位置变化前后纵坐标Y的变化值
     CGFloat deltaY=endRect.origin.y-beginRect.origin.y;
-    NSLog(@"看看这个变化的Y值:%f",deltaY);
     
     if( _curEnditingView ) {
         
@@ -114,8 +111,7 @@
         CGPoint keyboard_in_tbviw = [self.window convertPoint:CGPointMake(0, endRect.origin.y) toView:_tableView]; //键盘在tableview中的origin-y
         CGFloat py = 15;
         CGFloat pc =(txt_off.y - keyboard_in_tbviw.y );
-        CGFloat k = (txt_off.y - keyboard_in_tbviw.y ) + _curEnditingView.frame.size.height +py;
-       
+        CGFloat k = pc + _curEnditingView.frame.size.height +py;
         _tableView.contentOffset = CGPointMake(0, _tableView.contentOffset.y +k);
         _tableView.contentSize= CGSizeMake(_tableView.contentSize.width, _tableView.contentSize.height + deltaY * (-1));
     }
@@ -163,7 +159,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    ShellKitSectionModel * model = _tableViewDataSource.sectionArrays[section];
+    YUFormSectionModel * model = _tableViewDataSource.sectionArrays[section];
     return model.sectionHeight;
 }
 
@@ -175,7 +171,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UITableViewHeaderFooterView<YUCheckBoxSectionDelegate> *  headView = nil;
-    ShellKitSectionModel * sectionModel = _tableViewDataSource.sectionArrays[section] ;
+    YUFormSectionModel * sectionModel = _tableViewDataSource.sectionArrays[section] ;
     NSString * setcionID = NSStringFromClass(sectionModel.sectionCellStyleClass);
     headView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:setcionID];
     if(headView == nil)
@@ -192,7 +188,7 @@
 {
     
     ShellKitTableViewCellModel * model  = _tableViewDataSource.sectionArrays[indexPath.section].rowArrays[indexPath.row];
-    ShellKitSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
+    YUFormSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
     model.rowNumber = indexPath.row;
     NSString * cellId = NSStringFromClass(sectionModel.rowCellStyleClass);
     UITableViewCell * cell= [tableView dequeueReusableCellWithIdentifier:cellId ];
@@ -227,7 +223,7 @@
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ShellKitSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
+    YUFormSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
     ShellKitTableViewCellModel * rowmModel = sectionModel.rowArrays[indexPath.row];
     /** cell缓存高度  */
     if( rowmModel.cellHeight == UITableViewAutomaticDimension && cell.frame.size.height > 0  ) {
@@ -237,7 +233,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ShellKitSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
+    YUFormSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
     ShellKitTableViewCellModel * rowmModel = sectionModel.rowArrays[indexPath.row];
     rowmModel.isSelected = !rowmModel.isSelected;
     NSMutableArray<NSIndexPath *> * updateIndexPaths = [[NSMutableArray alloc]initWithArray:@[indexPath]];
@@ -289,6 +285,12 @@
     }
 }
 
+/**
+ 取符号函数
+
+ @param x 待处理的x
+ @return 返回符号 -1 1 0
+ */
 - (int)sign:(CGFloat)x {
     return x!=0? x/x:0 ;
 }

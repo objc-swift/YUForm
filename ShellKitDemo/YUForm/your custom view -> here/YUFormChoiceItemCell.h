@@ -8,5 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SheKit.h"
-@interface SheKitDefaultTableViewCell : UITableViewCell<ShellKitSelectTableView>
+@interface YUFormChoiceItemCell : UITableViewCell<ShellKitSelectTableView>
+
 @end

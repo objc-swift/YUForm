@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SheKit.h"
-@interface SheKitSectionHeadView : UITableViewHeaderFooterView<YUCheckBoxSectionDelegate>
+@interface YUFormHeadSection : UITableViewHeaderFooterView<YUCheckBoxSectionDelegate>
 
 @end

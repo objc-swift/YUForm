@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ShellKitSelectTableViewDataSource.h"
-@class ShellKitTableViewCellModel;
+#import "ShellKitTableViewCellModel.h"
+#import "YUFormSectionModel.h"
+#import "UITableView+YUTableViewAddition.h"
+@class YUForm;
 typedef NS_ENUM(NSUInteger, RegClassType) {
     RegClassTypeCell = 1 ,
     RegClassTypeHeadView = 2
@@ -32,12 +35,9 @@ typedef NS_ENUM(NSUInteger, RegClassType) {
 // sectionView 要实现我
 @protocol YUCheckBoxSectionDelegate<NSObject>
 @required
-- (void)shell_setModel:(ShellKitSectionModel *) model;
+- (void)shell_setModel:(YUFormSectionModel *) model;
 @end
-
-
-
-@interface ShellKitSelectTableView : UIView
+@interface YUForm : UIView
 @property (strong,nonatomic) ShellKitSelectTableViewDataSource * tableViewDataSource;
 @property (strong,nonatomic) UITableView * tableView;
 - (void)reloadData ;

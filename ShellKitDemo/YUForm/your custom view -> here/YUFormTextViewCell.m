@@ -6,15 +6,15 @@
 //  Copyright © 2018 jimi. All rights reserved.
 //
 
-#import "YUCheckBoxTextViewCell.h"
+#import "YUFormTextViewCell.h"
 
-@interface YUCheckBoxTextViewCell()
+@interface YUFormTextViewCell()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
 
-@implementation YUCheckBoxTextViewCell
+@implementation YUFormTextViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -22,8 +22,7 @@
     _textView.layer.masksToBounds = YES;
     _textView.layer.borderWidth = 0.5;
     _textView.layer.borderColor = [UIColor colorWithRed:157/255.0 green:157/255.0  blue:157/255.0  alpha:1].CGColor;
-    
-    // Initialization code
+     self.contentView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1];
 }
 - (void)shell_setModel:(ShellKitTableViewCellModel *) model {
     
