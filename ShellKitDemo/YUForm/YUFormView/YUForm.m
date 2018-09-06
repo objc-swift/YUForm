@@ -7,6 +7,7 @@
 //
 
 #import "YUForm.h"
+#define YF_DF_BG_COLOR [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1]
 @interface YUForm()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,UITextFieldDelegate>
 @property (strong,nonatomic) NSMutableDictionary  *isRegClass;
 @property (strong,nonatomic) UIView *curEnditingView; // 当前编辑的view
@@ -29,6 +30,7 @@
     }
     return _toolbar;
 }
+
 #pragma mark event
 
 - (void)textFieldDone:(id)sender {
@@ -61,23 +63,21 @@
 }
 
 - (void)layoutSubviews {
-    
     [super layoutSubviews];
     [self.tableView setFrame:self.bounds];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
 }
-
 #pragma mark init
 - (void)setUpView
 {
     _tableView = [[UITableView alloc]initWithFrame:self.bounds style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self ;
-    _tableView.backgroundColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1];
+    //[UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1];
+    
+    _tableView.backgroundColor = [UIColor redColor];
     [self addSubview:_tableView];
 }
-
 - (void)initData
 {
     _tableViewDataSource = [[ShellKitSelectTableViewDataSource alloc]init];
@@ -153,7 +153,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ShellKitTableViewCellModel * model = _tableViewDataSource.sectionArrays[indexPath.section].rowArrays[indexPath.row];
+    YUFormCellModel * model = _tableViewDataSource.sectionArrays[indexPath.section].rowArrays[indexPath.row];
     return model.cellHeight;
 }
 
@@ -180,14 +180,24 @@
         headView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:setcionID];
     }
     [headView shell_setModel:sectionModel];
+    headView.contentView.backgroundColor = self.backgroundColor;
     return headView;
+    
 }
 
+
+/**
+ * tableview 来取cell时的代理方法
+ * 此方法中默认用cell的classname作为 cellIdentifier
+ * 此方法会自动注册cell的xib或cell的class，无需在初始化中注册
+ * 此方法会自动为实现了YUFormTextFieldDelegate的cell中的textfield设置属性
+ 
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    ShellKitTableViewCellModel * model  = _tableViewDataSource.sectionArrays[indexPath.section].rowArrays[indexPath.row];
+    YUFormCellModel * model  = _tableViewDataSource.sectionArrays[indexPath.section].rowArrays[indexPath.row];
     YUFormSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
     model.rowNumber = indexPath.row;
     NSString * cellId = NSStringFromClass(sectionModel.rowCellStyleClass);
@@ -218,23 +228,32 @@
         }
     }
     [self reModifyCell:cell withModel:model];
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     YUFormSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
-    ShellKitTableViewCellModel * rowmModel = sectionModel.rowArrays[indexPath.row];
+    YUFormCellModel * rowmModel = sectionModel.rowArrays[indexPath.row];
     /** cell缓存高度  */
     if( rowmModel.cellHeight == UITableViewAutomaticDimension && cell.frame.size.height > 0  ) {
         rowmModel.cellHeight = cell.frame.size.height;
     }
 }
 
+/**
+ * tableview的某个cell被点击时触发 （代理）
+ * 此方法会改变cellModel的选中状态值
+ * 此方法会reload整个tableview
+ 
+ @param tableView 方法执行者
+ @param indexPath 点击的位置
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     YUFormSectionModel * sectionModel = _tableViewDataSource.sectionArrays[indexPath.section] ;
-    ShellKitTableViewCellModel * rowmModel = sectionModel.rowArrays[indexPath.row];
+    YUFormCellModel * rowmModel = sectionModel.rowArrays[indexPath.row];
     rowmModel.isSelected = !rowmModel.isSelected;
     NSMutableArray<NSIndexPath *> * updateIndexPaths = [[NSMutableArray alloc]initWithArray:@[indexPath]];
     // 点击后的状态
@@ -242,7 +261,7 @@
         if( !sectionModel.isCanMultipleChoice )
         {
                 // 不可多选，将已选的取消选择，保证已经选择只存在一个
-            for ( ShellKitTableViewCellModel * selectedRow in sectionModel.selectRowsSet )
+            for ( YUFormCellModel * selectedRow in sectionModel.selectRowsSet )
             {
                 selectedRow.isSelected = NO ;
                 NSIndexPath * unSelectIndexPath =[NSIndexPath indexPathForRow:selectedRow.rowNumber inSection:indexPath.section];
@@ -264,10 +283,21 @@
 {
     return nil;
 }
+
 #pragma mark view logic
+
+/**
+ * 更新cell上显示的信息
+ * 此方法会更新cell的选择状态
+ 
+ @param cell 被更新的cell
+ @param model 被更新的cellModel
+ */
 - (void)reModifyCell:(UITableViewCell  * ) cell
-           withModel:(ShellKitTableViewCellModel *)model
+           withModel:(YUFormCellModel *)model
 {
+    cell.contentView.backgroundColor = self.backgroundColor;
+    
     if(model.isSelected)
     {
         if( [cell respondsToSelector:@selector(shell_selectedStatus)] ){
@@ -295,8 +325,17 @@
     return x!=0? x/x:0 ;
 }
 
+- (void)addSectionModel:(YUFormSectionModel *)sectionModel {
+    [self.tableViewDataSource.sectionArrays addObject:sectionModel];
+}
+#pragma mark sys over
 - (void)dealloc {
     [self stopKeyboardObserve];
+    
+}
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    [super setBackgroundColor:backgroundColor];
+    [_tableView setBackgroundColor:backgroundColor];
     
 }
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ShellKitSelectTableViewDataSource.h"
-#import "ShellKitTableViewCellModel.h"
+#import "YUFormCellModel.h"
 #import "YUFormSectionModel.h"
 #import "UITableView+YUTableViewAddition.h"
 @class YUForm;
@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, RegClassType) {
 //选择项cell需要实现我
 @protocol ShellKitSelectTableView<NSObject>
 @required
-- (void)shell_setModel:(ShellKitTableViewCellModel *) model;
+- (void)shell_setModel:(YUFormCellModel *) model;
 - (void)shell_selectedStatus;
 - (void)shell_unSelectStatus;
 @end
@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, RegClassType) {
 //文本框需要实现我
 @protocol YUCheckBoxRowTextCellDelegate<NSObject>
 @required
-- (void)shell_setModel:(ShellKitTableViewCellModel *) model;
+- (void)shell_setModel:(YUFormCellModel *) model;
 - (UIView *)shell_inputView ;
 @end
 
@@ -37,10 +37,10 @@ typedef NS_ENUM(NSUInteger, RegClassType) {
 @required
 - (void)shell_setModel:(YUFormSectionModel *) model;
 @end
+
 @interface YUForm : UIView
 @property (strong,nonatomic) ShellKitSelectTableViewDataSource * tableViewDataSource;
-@property (strong,nonatomic) UITableView * tableView;
+@property (strong,nonatomic) UITableView *tableView;
+- (void)addSectionModel:(YUFormSectionModel *)sectionModel;
 - (void)reloadData ;
-
-
 @end

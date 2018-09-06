@@ -6,9 +6,9 @@
 //  Copyright © 2018年 jimi. All rights reserved.
 //
 
-#import "ShellKitTableViewCellModel.h"
+#import "YUFormCellModel.h"
 
-@implementation ShellKitTableViewCellModel
+@implementation YUFormCellModel
 - (id)init{
     self = [super init];
     if( self ){
@@ -17,7 +17,7 @@
     }
     return self;
 }
-- (void)yu_settingMake:(void(^)(ShellKitTableViewCellModel *))block {
+- (void)yu_settingMake:(void(^)(YUFormCellModel *))block {
     block(self);
 }
 @end

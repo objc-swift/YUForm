@@ -10,6 +10,7 @@
 
 @interface YUFormTextViewCell()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 
 @end
 
@@ -18,12 +19,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    _textView.layer.cornerRadius = 5.0;
-    _textView.layer.masksToBounds = YES;
-    _textView.layer.borderWidth = 0.5;
-    _textView.layer.borderColor = [UIColor colorWithRed:157/255.0 green:157/255.0  blue:157/255.0  alpha:1].CGColor;
+    _bgView.layer.cornerRadius = 5.0;
+    _bgView.layer.masksToBounds = YES;
      self.contentView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1];
 }
+
 - (void)shell_setModel:(ShellKitTableViewCellModel *) model {
     
 }

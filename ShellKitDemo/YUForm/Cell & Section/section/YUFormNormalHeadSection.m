@@ -6,12 +6,12 @@
 //  Copyright © 2018年 jimi. All rights reserved.
 //
 
-#import "YUFormHeadSection.h"
+#import "YUFormNormalHeadSection.h"
 
-@interface  YUFormHeadSection()
+@interface  YUFormNormalHeadSection()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end
-@implementation YUFormHeadSection
+@implementation YUFormNormalHeadSection
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithReuseIdentifier:reuseIdentifier];
     if (self) {
@@ -23,18 +23,6 @@
     [_titleLabel setText:model.data];
 }
 - (void)setUp{
-    self.contentView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1];
     
 }
-
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 @end

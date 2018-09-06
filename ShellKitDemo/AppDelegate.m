@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "YUForm.h"
 #import "ViewController.h"
-#import "YUFormHeadSection.h"
+#import "YUFormNormalHeadSection.h"
 @interface AppDelegate ()
 
 @end

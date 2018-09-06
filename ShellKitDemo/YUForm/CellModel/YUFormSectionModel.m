@@ -7,9 +7,9 @@
 //
 
 #import "YUFormSectionModel.h"
-#import "ShellKitTableViewCellModel.h"
+#import "YUFormCellModel.h"
 #import "YUFormChoiceItemCell.h"
-#import "YUFormHeadSection.h"
+#import "YUFormNormalHeadSection.h"
 @interface YUFormSectionModel()
 @end
 @implementation YUFormSectionModel
@@ -18,9 +18,9 @@
     block(self);
 }
 
-- ( NSMutableArray<ShellKitTableViewCellModel *> *) rowArrays {
+- ( NSMutableArray<YUFormCellModel *> *) rowArrays {
     if(_rowArrays)return _rowArrays;
-    _rowArrays = [[NSMutableArray<ShellKitTableViewCellModel *> alloc]init];
+    _rowArrays = [[NSMutableArray<YUFormCellModel *> alloc]init];
     return _rowArrays;
 }
 
@@ -28,7 +28,7 @@
     
     self = [super init];
     if(self){
-        _selectRowsSet = [[NSMutableSet <ShellKitTableViewCellModel *> alloc]init];
+        _selectRowsSet = [[NSMutableSet <YUFormCellModel *> alloc]init];
         _sectionHeight = UITableViewAutomaticDimension;
         
     }
@@ -45,7 +45,7 @@
 
 - (Class)sectionCellStyleClass {
     if( !_sectionCellStyleClass ) {
-        _sectionCellStyleClass = YUFormHeadSection.class;
+        _sectionCellStyleClass = YUFormNormalHeadSection.class;
     }
     return _sectionCellStyleClass;
 }

@@ -10,14 +10,16 @@
 
 @class ShellKitTableViewCellModel;
 @class YUCheckBoxSettingMaker;
+@class YUFormCellModel;
+
 @interface YUFormSectionModel : NSObject
 
-@property (strong,nonatomic) NSMutableSet   <ShellKitTableViewCellModel *> * selectRowsSet ;
-@property (strong,nonatomic) NSMutableArray <ShellKitTableViewCellModel *> * rowArrays ;
-@property (strong,nonatomic) id data ;
-@property (assign,nonatomic) CGFloat sectionHeight ;
-@property (assign,nonatomic) BOOL isCanMultipleChoice ;
-@property (strong,nonatomic) Class rowCellStyleClass ;
+@property (strong,nonatomic) NSMutableSet   <YUFormCellModel *> * selectRowsSet ;
+@property (strong,nonatomic) NSMutableArray <YUFormCellModel *> * rowArrays ;
+@property (strong,nonatomic) id data;
+@property (assign,nonatomic) CGFloat sectionHeight;
+@property (assign,nonatomic) BOOL isCanMultipleChoice;
+@property (strong,nonatomic) Class rowCellStyleClass;
 @property (strong,nonatomic) Class sectionCellStyleClass;
 - (void)yu_settingMake:(void(^)(YUFormSectionModel *))block;
 @end

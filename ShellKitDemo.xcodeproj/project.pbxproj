@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C07D64B213FB2B4004D5AC5 /* YUFormChoiceHeadSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C07D64A213FB2B4004D5AC5 /* YUFormChoiceHeadSection.m */; };
+		3C07D64D213FB30F004D5AC5 /* YUFormChoiceHeadSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C07D64C213FB30F004D5AC5 /* YUFormChoiceHeadSection.xib */; };
 		3C7F897320F32F7A0010CB68 /* YUFormTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F897120F32F7A0010CB68 /* YUFormTextViewCell.m */; };
 		3C7F897420F32F7A0010CB68 /* YUFormTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C7F897220F32F7A0010CB68 /* YUFormTextViewCell.xib */; };
 		3C863EA020CA838B00F112ED /* UITableView+YUTableViewAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C863E9F20CA838B00F112ED /* UITableView+YUTableViewAddition.m */; };
 		3C8B6442213D478900AE2173 /* YUFormMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8B6441213D478900AE2173 /* YUFormMaker.m */; };
+		3C8B6447213E35A300AE2173 /* YUFormTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8B6445213E35A300AE2173 /* YUFormTextFieldCell.m */; };
+		3C8B6448213E35A300AE2173 /* YUFormTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8B6446213E35A300AE2173 /* YUFormTextFieldCell.xib */; };
+		3C8B644B213E7FCF00AE2173 /* YUFormRootCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8B644A213E7FCF00AE2173 /* YUFormRootCell.m */; };
 		3C8D766A20B7A5960011D1BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D766920B7A5960011D1BA /* AppDelegate.m */; };
 		3C8D767220B7A5960011D1BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D767120B7A5960011D1BA /* Assets.xcassets */; };
 		3C8D767520B7A5960011D1BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D767320B7A5960011D1BA /* LaunchScreen.storyboard */; };
@@ -19,14 +24,14 @@
 		3C8D768D20B7A5960011D1BA /* ShellKitDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D768C20B7A5960011D1BA /* ShellKitDemoUITests.m */; };
 		3C8D769D20B7A64F0011D1BA /* YUForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D769C20B7A64F0011D1BA /* YUForm.m */; };
 		3C8D76A120B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76A020B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m */; };
-		3C8D76A820BB9B960011D1BA /* ShellKitTableViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76A720BB9B960011D1BA /* ShellKitTableViewCellModel.m */; };
+		3C8D76A820BB9B960011D1BA /* YUFormCellModel..m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76A720BB9B960011D1BA /* YUFormCellModel..m */; };
 		3C8D76AC20BBB1D30011D1BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76AA20BBB1D30011D1BA /* ViewController.m */; };
 		3C8D76AD20BBB1D30011D1BA /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76AB20BBB1D30011D1BA /* ViewController.xib */; };
 		3C8D76B220BBB8860011D1BA /* YUFormChoiceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76B020BBB8860011D1BA /* YUFormChoiceItemCell.m */; };
 		3C8D76B320BBB8860011D1BA /* YUFormChoiceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76B120BBB8860011D1BA /* YUFormChoiceItemCell.xib */; };
 		3C8D76BA20BC06540011D1BA /* YUFormSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76B920BC06540011D1BA /* YUFormSectionModel.m */; };
-		3C8D76BD20BCF4BA0011D1BA /* YUFormHeadSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76BC20BCF4BA0011D1BA /* YUFormHeadSection.m */; };
-		3C8D76C520BD31370011D1BA /* YUFormHeadSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76C420BD31370011D1BA /* YUFormHeadSection.xib */; };
+		3C8D76BD20BCF4BA0011D1BA /* YUFormNormalHeadSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D76BC20BCF4BA0011D1BA /* YUFormNormalHeadSection.m */; };
+		3C8D76C520BD31370011D1BA /* YUFormNormalHeadSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76C420BD31370011D1BA /* YUFormNormalHeadSection.xib */; };
 		3C8D76CB20BD573E0011D1BA /* ShellKitBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3C8D76CA20BD573E0011D1BA /* ShellKitBundle.bundle */; };
 		A8D76B804040C3B6533BD0DF /* libPods-ShellKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4028C7FF77D61F9F976A4B4D /* libPods-ShellKitDemo.a */; };
 /* End PBXBuildFile section */
@@ -49,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C07D649213FB2B4004D5AC5 /* YUFormChoiceHeadSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormChoiceHeadSection.h; sourceTree = "<group>"; };
+		3C07D64A213FB2B4004D5AC5 /* YUFormChoiceHeadSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormChoiceHeadSection.m; sourceTree = "<group>"; };
+		3C07D64C213FB30F004D5AC5 /* YUFormChoiceHeadSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUFormChoiceHeadSection.xib; sourceTree = "<group>"; };
 		3C7F897020F32F7A0010CB68 /* YUFormTextViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormTextViewCell.h; sourceTree = "<group>"; };
 		3C7F897120F32F7A0010CB68 /* YUFormTextViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormTextViewCell.m; sourceTree = "<group>"; };
 		3C7F897220F32F7A0010CB68 /* YUFormTextViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUFormTextViewCell.xib; sourceTree = "<group>"; };
@@ -56,6 +64,11 @@
 		3C863E9F20CA838B00F112ED /* UITableView+YUTableViewAddition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+YUTableViewAddition.m"; sourceTree = "<group>"; };
 		3C8B6440213D478900AE2173 /* YUFormMaker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormMaker.h; sourceTree = "<group>"; };
 		3C8B6441213D478900AE2173 /* YUFormMaker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormMaker.m; sourceTree = "<group>"; };
+		3C8B6444213E35A300AE2173 /* YUFormTextFieldCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormTextFieldCell.h; sourceTree = "<group>"; };
+		3C8B6445213E35A300AE2173 /* YUFormTextFieldCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormTextFieldCell.m; sourceTree = "<group>"; };
+		3C8B6446213E35A300AE2173 /* YUFormTextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUFormTextFieldCell.xib; sourceTree = "<group>"; };
+		3C8B6449213E7FCF00AE2173 /* YUFormRootCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormRootCell.h; sourceTree = "<group>"; };
+		3C8B644A213E7FCF00AE2173 /* YUFormRootCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormRootCell.m; sourceTree = "<group>"; };
 		3C8D766520B7A5950011D1BA /* ShellKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShellKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C8D766820B7A5950011D1BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C8D766920B7A5960011D1BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,8 +86,8 @@
 		3C8D769C20B7A64F0011D1BA /* YUForm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUForm.m; sourceTree = "<group>"; };
 		3C8D769F20B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellKitSelectTableViewDataSource.h; sourceTree = "<group>"; };
 		3C8D76A020B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellKitSelectTableViewDataSource.m; sourceTree = "<group>"; };
-		3C8D76A620BB9B960011D1BA /* ShellKitTableViewCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellKitTableViewCellModel.h; sourceTree = "<group>"; };
-		3C8D76A720BB9B960011D1BA /* ShellKitTableViewCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShellKitTableViewCellModel.m; sourceTree = "<group>"; };
+		3C8D76A620BB9B960011D1BA /* YUFormCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormCellModel.h; sourceTree = "<group>"; };
+		3C8D76A720BB9B960011D1BA /* YUFormCellModel..m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormCellModel..m; sourceTree = "<group>"; };
 		3C8D76A920BBB1D30011D1BA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3C8D76AA20BBB1D30011D1BA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3C8D76AB20BBB1D30011D1BA /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
@@ -84,9 +97,9 @@
 		3C8D76B420BBB9700011D1BA /* SheKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SheKit.h; sourceTree = "<group>"; };
 		3C8D76B820BC06540011D1BA /* YUFormSectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormSectionModel.h; sourceTree = "<group>"; };
 		3C8D76B920BC06540011D1BA /* YUFormSectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormSectionModel.m; sourceTree = "<group>"; };
-		3C8D76BB20BCF4BA0011D1BA /* YUFormHeadSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormHeadSection.h; sourceTree = "<group>"; };
-		3C8D76BC20BCF4BA0011D1BA /* YUFormHeadSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormHeadSection.m; sourceTree = "<group>"; };
-		3C8D76C420BD31370011D1BA /* YUFormHeadSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUFormHeadSection.xib; sourceTree = "<group>"; };
+		3C8D76BB20BCF4BA0011D1BA /* YUFormNormalHeadSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormNormalHeadSection.h; sourceTree = "<group>"; };
+		3C8D76BC20BCF4BA0011D1BA /* YUFormNormalHeadSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormNormalHeadSection.m; sourceTree = "<group>"; };
+		3C8D76C420BD31370011D1BA /* YUFormNormalHeadSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUFormNormalHeadSection.xib; sourceTree = "<group>"; };
 		3C8D76CA20BD573E0011D1BA /* ShellKitBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShellKitBundle.bundle; sourceTree = "<group>"; };
 		4028C7FF77D61F9F976A4B4D /* libPods-ShellKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShellKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FDD08A76660F07E0D562014 /* Pods-ShellKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShellKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShellKitDemo/Pods-ShellKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,13 +132,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3C863E9D20CA565100F112ED /* YUTableView+Addition */ = {
+		3C07D647213FB042004D5AC5 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				3C07D649213FB2B4004D5AC5 /* YUFormChoiceHeadSection.h */,
+				3C07D64A213FB2B4004D5AC5 /* YUFormChoiceHeadSection.m */,
+				3C07D64C213FB30F004D5AC5 /* YUFormChoiceHeadSection.xib */,
+				3C8D76BB20BCF4BA0011D1BA /* YUFormNormalHeadSection.h */,
+				3C8D76BC20BCF4BA0011D1BA /* YUFormNormalHeadSection.m */,
+				3C8D76C420BD31370011D1BA /* YUFormNormalHeadSection.xib */,
+			);
+			path = section;
+			sourceTree = "<group>";
+		};
+		3C07D648213FB04A004D5AC5 /* celll */ = {
+			isa = PBXGroup;
+			children = (
+				3C8D76AF20BBB8860011D1BA /* YUFormChoiceItemCell.h */,
+				3C8D76B020BBB8860011D1BA /* YUFormChoiceItemCell.m */,
+				3C8D76B120BBB8860011D1BA /* YUFormChoiceItemCell.xib */,
+				3C7F897020F32F7A0010CB68 /* YUFormTextViewCell.h */,
+				3C7F897120F32F7A0010CB68 /* YUFormTextViewCell.m */,
+				3C7F897220F32F7A0010CB68 /* YUFormTextViewCell.xib */,
+				3C8B6444213E35A300AE2173 /* YUFormTextFieldCell.h */,
+				3C8B6445213E35A300AE2173 /* YUFormTextFieldCell.m */,
+				3C8B6446213E35A300AE2173 /* YUFormTextFieldCell.xib */,
+				3C8B6449213E7FCF00AE2173 /* YUFormRootCell.h */,
+				3C8B644A213E7FCF00AE2173 /* YUFormRootCell.m */,
+			);
+			path = celll;
+			sourceTree = "<group>";
+		};
+		3C8B6443213E2C1F00AE2173 /* T00ls */ = {
 			isa = PBXGroup;
 			children = (
 				3C863E9E20CA838B00F112ED /* UITableView+YUTableViewAddition.h */,
 				3C863E9F20CA838B00F112ED /* UITableView+YUTableViewAddition.m */,
 			);
-			path = "YUTableView+Addition";
+			path = T00ls;
 			sourceTree = "<group>";
 		};
 		3C8D765C20B7A5950011D1BA = {
@@ -153,7 +197,6 @@
 		3C8D766720B7A5950011D1BA /* ShellKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				3C863E9D20CA565100F112ED /* YUTableView+Addition */,
 				3C8D769A20B7A5AF0011D1BA /* YUForm */,
 				3C8D766820B7A5950011D1BA /* AppDelegate.h */,
 				3C8D766920B7A5960011D1BA /* AppDelegate.m */,
@@ -189,16 +232,17 @@
 		3C8D769A20B7A5AF0011D1BA /* YUForm */ = {
 			isa = PBXGroup;
 			children = (
+				3C8B6443213E2C1F00AE2173 /* T00ls */,
 				3C8D76CA20BD573E0011D1BA /* ShellKitBundle.bundle */,
 				3C8D76B420BBB9700011D1BA /* SheKit.h */,
-				3C8D76AE20BBB6F30011D1BA /* your custom view -> here */,
-				3C8D76A220BB9AFE0011D1BA /* Public */,
-				3C8D769E20B7A6610011D1BA /* ShellKitSelectTableView */,
+				3C8D76AE20BBB6F30011D1BA /* Cell & Section */,
+				3C8D76A220BB9AFE0011D1BA /* CellModel */,
+				3C8D769E20B7A6610011D1BA /* YUFormView */,
 			);
 			path = YUForm;
 			sourceTree = "<group>";
 		};
-		3C8D769E20B7A6610011D1BA /* ShellKitSelectTableView */ = {
+		3C8D769E20B7A6610011D1BA /* YUFormView */ = {
 			isa = PBXGroup;
 			children = (
 				3C8D769B20B7A64F0011D1BA /* YUForm.h */,
@@ -206,36 +250,29 @@
 				3C8D769F20B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.h */,
 				3C8D76A020B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m */,
 			);
-			path = ShellKitSelectTableView;
+			path = YUFormView;
 			sourceTree = "<group>";
 		};
-		3C8D76A220BB9AFE0011D1BA /* Public */ = {
+		3C8D76A220BB9AFE0011D1BA /* CellModel */ = {
 			isa = PBXGroup;
 			children = (
-				3C8D76A620BB9B960011D1BA /* ShellKitTableViewCellModel.h */,
-				3C8D76A720BB9B960011D1BA /* ShellKitTableViewCellModel.m */,
+				3C8D76A620BB9B960011D1BA /* YUFormCellModel.h */,
+				3C8D76A720BB9B960011D1BA /* YUFormCellModel..m */,
 				3C8D76B820BC06540011D1BA /* YUFormSectionModel.h */,
 				3C8D76B920BC06540011D1BA /* YUFormSectionModel.m */,
 				3C8B6440213D478900AE2173 /* YUFormMaker.h */,
 				3C8B6441213D478900AE2173 /* YUFormMaker.m */,
 			);
-			path = Public;
+			path = CellModel;
 			sourceTree = "<group>";
 		};
-		3C8D76AE20BBB6F30011D1BA /* your custom view -> here */ = {
+		3C8D76AE20BBB6F30011D1BA /* Cell & Section */ = {
 			isa = PBXGroup;
 			children = (
-				3C8D76AF20BBB8860011D1BA /* YUFormChoiceItemCell.h */,
-				3C8D76B020BBB8860011D1BA /* YUFormChoiceItemCell.m */,
-				3C8D76B120BBB8860011D1BA /* YUFormChoiceItemCell.xib */,
-				3C8D76BB20BCF4BA0011D1BA /* YUFormHeadSection.h */,
-				3C8D76BC20BCF4BA0011D1BA /* YUFormHeadSection.m */,
-				3C8D76C420BD31370011D1BA /* YUFormHeadSection.xib */,
-				3C7F897020F32F7A0010CB68 /* YUFormTextViewCell.h */,
-				3C7F897120F32F7A0010CB68 /* YUFormTextViewCell.m */,
-				3C7F897220F32F7A0010CB68 /* YUFormTextViewCell.xib */,
+				3C07D648213FB04A004D5AC5 /* celll */,
+				3C07D647213FB042004D5AC5 /* section */,
 			);
-			path = "your custom view -> here";
+			path = "Cell & Section";
 			sourceTree = "<group>";
 		};
 		5A6396038188B942F87B1D10 /* Frameworks */ = {
@@ -360,12 +397,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C7F897420F32F7A0010CB68 /* YUFormTextViewCell.xib in Resources */,
-				3C8D76C520BD31370011D1BA /* YUFormHeadSection.xib in Resources */,
+				3C8D76C520BD31370011D1BA /* YUFormNormalHeadSection.xib in Resources */,
 				3C8D767520B7A5960011D1BA /* LaunchScreen.storyboard in Resources */,
 				3C8D767220B7A5960011D1BA /* Assets.xcassets in Resources */,
+				3C07D64D213FB30F004D5AC5 /* YUFormChoiceHeadSection.xib in Resources */,
 				3C8D76AD20BBB1D30011D1BA /* ViewController.xib in Resources */,
 				3C8D76B320BBB8860011D1BA /* YUFormChoiceItemCell.xib in Resources */,
 				3C8D76CB20BD573E0011D1BA /* ShellKitBundle.bundle in Resources */,
+				3C8B6448213E35A300AE2173 /* YUFormTextFieldCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,16 +450,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C8D76BD20BCF4BA0011D1BA /* YUFormHeadSection.m in Sources */,
+				3C8D76BD20BCF4BA0011D1BA /* YUFormNormalHeadSection.m in Sources */,
 				3C8D76AC20BBB1D30011D1BA /* ViewController.m in Sources */,
+				3C8B6447213E35A300AE2173 /* YUFormTextFieldCell.m in Sources */,
+				3C8B644B213E7FCF00AE2173 /* YUFormRootCell.m in Sources */,
 				3C8D767820B7A5960011D1BA /* main.m in Sources */,
 				3C863EA020CA838B00F112ED /* UITableView+YUTableViewAddition.m in Sources */,
 				3C7F897320F32F7A0010CB68 /* YUFormTextViewCell.m in Sources */,
 				3C8D76B220BBB8860011D1BA /* YUFormChoiceItemCell.m in Sources */,
 				3C8B6442213D478900AE2173 /* YUFormMaker.m in Sources */,
 				3C8D766A20B7A5960011D1BA /* AppDelegate.m in Sources */,
+				3C07D64B213FB2B4004D5AC5 /* YUFormChoiceHeadSection.m in Sources */,
 				3C8D769D20B7A64F0011D1BA /* YUForm.m in Sources */,
-				3C8D76A820BB9B960011D1BA /* ShellKitTableViewCellModel.m in Sources */,
+				3C8D76A820BB9B960011D1BA /* YUFormCellModel..m in Sources */,
 				3C8D76A120B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m in Sources */,
 				3C8D76BA20BC06540011D1BA /* YUFormSectionModel.m in Sources */,
 			);
