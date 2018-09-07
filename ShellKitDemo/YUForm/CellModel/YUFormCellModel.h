@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+@class YUFormSectionModel;
 
 
 @interface YUFormCellModel : NSObject
@@ -16,5 +17,6 @@
 @property (assign,nonatomic) CGFloat cellHeight ;
 @property (assign,nonatomic) BOOL isSelected;
 @property (strong,nonatomic) id data;
+@property (weak,nonatomic) YUFormSectionModel *inSectionModel;
 - (void)yu_settingMake:(void(^)(YUFormCellModel *))block;
 @end

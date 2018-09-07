@@ -11,16 +11,23 @@
 #import "YUFormTextViewCell.h"
 #import "YUFormTextFieldCell.h"
 #import "YUFormChoiceHeadSection.h"
+#import "YUFormWhiteBlockHeadSection.h"
 @implementation YUFormMaker
-
++ (YUFormSectionModel *)make_WhiteBlockWithHeight:(CGFloat)height  {
+    
+    YUFormSectionModel *model = [[YUFormSectionModel alloc]init];
+    [model yu_settingMake:^(YUFormSectionModel *this) {
+        this.sectionCellStyleClass = YUFormWhiteBlockHeadSection.class;
+        this.sectionHeight = height;
+    }];
+    return model;
+}
 + (YUFormSectionModel *)make_MultipleChoicesWithTitle:(NSString *)title items:(NSArray<NSString *> *)items {
     return [self make_ChoicesWithTitle:title items:items isMutiple:YES];
 }
 + (YUFormSectionModel *)make_SignleChoicesWithTitle:(NSString *)title items:(NSArray<NSString *> *)items {
     return  [self make_ChoicesWithTitle:title items:items isMutiple:NO];
 }
-
-
 + (YUFormSectionModel *)make_TextViewWithTitle:(NSString *)title {
     YUFormSectionModel *model = [[YUFormSectionModel alloc]init];
     [model yu_settingMake:^(YUFormSectionModel * this) {
@@ -47,12 +54,18 @@
         NSMutableArray *rows = [[NSMutableArray alloc]init];
         YUFormCellModel *cellModel = [[YUFormCellModel alloc]init];
         [cellModel yu_settingMake:^(YUFormCellModel *this ) {
-            
         }];
         [rows addObject:cellModel];
         this.rowArrays = rows;
     }];
     return model;
+}
+
++ (YUFormSectionModel *)make_TextFieldWithTitle:(NSString *)title keyboardType:(UIKeyboardType)keyboardType  placeholder:(NSString *)placeholder {
+   YUFormSectionModel *sectionModel =  [self make_TextFieldWithTitle:title];
+    sectionModel.rowArrays[0].data = @{@"placeholder":placeholder,@"keyboardType":@(keyboardType)};
+    
+   return sectionModel;
 }
 + (YUFormSectionModel *)make_ChoicesWithTitle:(NSString *)title items:(NSArray<NSString *> *)items isMutiple:(BOOL)isMutiple {
     YUFormSectionModel *model = [[YUFormSectionModel alloc]init];

@@ -9,10 +9,7 @@
 #import "YUFormTextFieldCell.h"
 #import "SheKit.h"
 
-@implementation YUFormTextFieldData
 
-
-@end
 
 
 @interface YUFormTextFieldCell()<YUCheckBoxRowTextCellDelegate>
@@ -22,8 +19,11 @@
 @implementation YUFormTextFieldCell
 #pragma mark delegate
 - (void)shell_setModel:(YUFormCellModel *) model {
-    if( [model.data isKindOfClass:YUFormTextFieldData.class] ) {
-        
+    if( [model.data isKindOfClass:NSDictionary.class] ) {
+        NSString *placeholder = model.data[@"placeholder"];
+        UIKeyboardType keyboardType = [model.data[@"keyboardType"] integerValue];
+        _textField.placeholder = placeholder;
+        _textField.keyboardType = keyboardType;
     }
 }
 - (UIView *)shell_inputView {
@@ -35,14 +35,11 @@
     _bgView.layer.cornerRadius = 5.0;
     _bgView.layer.borderWidth = 0.5;
     _bgView.layer.borderColor = [UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1].CGColor;
-    
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 @end

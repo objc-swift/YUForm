@@ -10,9 +10,11 @@
 #import "YUFormSectionModel.h"
 #import "YUFormNormalHeadSection.h"
 @interface YUFormMaker : NSObject
-
++ (YUFormSectionModel *)make_WhiteBlockWithHeight:(CGFloat)height ;
 + (YUFormSectionModel *)make_MultipleChoicesWithTitle:(NSString *)title items:(NSArray<NSString *> *)items;
 + (YUFormSectionModel *)make_SignleChoicesWithTitle:(NSString *)title items:(NSArray<NSString *> *)items;
 + (YUFormSectionModel *)make_TextViewWithTitle:(NSString *)title ;
 + (YUFormSectionModel *)make_TextFieldWithTitle:(NSString *)title ;
++ (YUFormSectionModel *)make_TextFieldWithTitle:(NSString *)title keyboardType:(UIKeyboardType)keyboardType  placeholder:(NSString *)placeholder;
+
 @end

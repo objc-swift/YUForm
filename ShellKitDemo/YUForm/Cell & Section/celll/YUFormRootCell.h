@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class YUFormCellModel;
 
 @interface YUFormRootCell : UITableViewCell
+@property (strong,nonatomic) YUFormCellModel *cellModel;
 
 @end

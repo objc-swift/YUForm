@@ -16,21 +16,22 @@
 
 - (void) yu_settingMake:(void(^)(YUFormSectionModel *))block {
     block(self);
+    for( YUFormCellModel *cellModel in self.rowArrays ) {
+        cellModel.inSectionModel = self;
+    }
 }
 
-- ( NSMutableArray<YUFormCellModel *> *) rowArrays {
-    if(_rowArrays)return _rowArrays;
+- (NSMutableArray<YUFormCellModel *> *) rowArrays {
+    if( _rowArrays )return _rowArrays;
     _rowArrays = [[NSMutableArray<YUFormCellModel *> alloc]init];
     return _rowArrays;
 }
-
 - (id)init {
     
     self = [super init];
     if(self){
         _selectRowsSet = [[NSMutableSet <YUFormCellModel *> alloc]init];
         _sectionHeight = UITableViewAutomaticDimension;
-        
     }
     return self;
 }

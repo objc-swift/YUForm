@@ -7,9 +7,7 @@
 //
 
 #import "SheKit.h"
-@interface YUFormTextFieldData:NSObject
-@property (copy,nonatomic) NSString *placeholder ;
-@end
+
 
 @interface YUFormTextFieldCell : YUFormRootCell
 

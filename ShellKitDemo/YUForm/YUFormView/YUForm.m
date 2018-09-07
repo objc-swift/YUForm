@@ -61,7 +61,6 @@
     }
     return self;
 }
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self.tableView setFrame:self.bounds];
@@ -73,8 +72,6 @@
     _tableView = [[UITableView alloc]initWithFrame:self.bounds style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self ;
-    //[UIColor colorWithRed:248/255.0 green:248/255.0 blue:248/255.0 alpha:1];
-    
     _tableView.backgroundColor = [UIColor redColor];
     [self addSubview:_tableView];
 }
@@ -104,16 +101,20 @@
     CGRect  endRect=[keyBoardEndBounds CGRectValue];
     //获取键盘位置变化前后纵坐标Y的变化值
     CGFloat deltaY=endRect.origin.y-beginRect.origin.y;
-    
     if( _curEnditingView ) {
         
+        // 编辑view 0，0点相对于 tableview的 坐标
         CGPoint txt_off = [_curEnditingView convertPoint:CGPointMake(0, 0) toView:_tableView];
         CGPoint keyboard_in_tbviw = [self.window convertPoint:CGPointMake(0, endRect.origin.y) toView:_tableView]; //键盘在tableview中的origin-y
         CGFloat py = 15;
         CGFloat pc =(txt_off.y - keyboard_in_tbviw.y );
         CGFloat k = pc + _curEnditingView.frame.size.height +py;
-        _tableView.contentOffset = CGPointMake(0, _tableView.contentOffset.y +k);
-        _tableView.contentSize= CGSizeMake(_tableView.contentSize.width, _tableView.contentSize.height + deltaY * (-1));
+        CGFloat willOffy = _tableView.contentOffset.y +k ;
+        if( willOffy > 0  ) {
+            _tableView.contentOffset = CGPointMake(0, willOffy);
+        }
+        _tableView.contentSize= CGSizeMake(_tableView.contentSize.width,_tableView.contentSize.height + deltaY * (-1));
+
     }
 }
 
@@ -297,7 +298,9 @@
            withModel:(YUFormCellModel *)model
 {
     cell.contentView.backgroundColor = self.backgroundColor;
-    
+    if( [cell respondsToSelector:@selector(shell_setModel:)] ) {
+        [cell performSelector:@selector(shell_setModel:) withObject:model];
+    }
     if(model.isSelected)
     {
         if( [cell respondsToSelector:@selector(shell_selectedStatus)] ){
@@ -310,9 +313,7 @@
             [cell performSelector:@selector(shell_unSelectStatus)];
         }
     }
-    if( [cell respondsToSelector:@selector(shell_setModel:)] ) {
-        [cell performSelector:@selector(shell_setModel:) withObject:model];
-    }
+ 
 }
 
 /**

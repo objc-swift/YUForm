@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C07D64B213FB2B4004D5AC5 /* YUFormChoiceHeadSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C07D64A213FB2B4004D5AC5 /* YUFormChoiceHeadSection.m */; };
 		3C07D64D213FB30F004D5AC5 /* YUFormChoiceHeadSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C07D64C213FB30F004D5AC5 /* YUFormChoiceHeadSection.xib */; };
+		3C07D66621427CDA004D5AC5 /* YUFormWhiteBlockHeadSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C07D66521427CDA004D5AC5 /* YUFormWhiteBlockHeadSection.m */; };
 		3C7F897320F32F7A0010CB68 /* YUFormTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7F897120F32F7A0010CB68 /* YUFormTextViewCell.m */; };
 		3C7F897420F32F7A0010CB68 /* YUFormTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C7F897220F32F7A0010CB68 /* YUFormTextViewCell.xib */; };
 		3C863EA020CA838B00F112ED /* UITableView+YUTableViewAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C863E9F20CA838B00F112ED /* UITableView+YUTableViewAddition.m */; };
@@ -57,6 +58,8 @@
 		3C07D649213FB2B4004D5AC5 /* YUFormChoiceHeadSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormChoiceHeadSection.h; sourceTree = "<group>"; };
 		3C07D64A213FB2B4004D5AC5 /* YUFormChoiceHeadSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormChoiceHeadSection.m; sourceTree = "<group>"; };
 		3C07D64C213FB30F004D5AC5 /* YUFormChoiceHeadSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUFormChoiceHeadSection.xib; sourceTree = "<group>"; };
+		3C07D66421427CDA004D5AC5 /* YUFormWhiteBlockHeadSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormWhiteBlockHeadSection.h; sourceTree = "<group>"; };
+		3C07D66521427CDA004D5AC5 /* YUFormWhiteBlockHeadSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormWhiteBlockHeadSection.m; sourceTree = "<group>"; };
 		3C7F897020F32F7A0010CB68 /* YUFormTextViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUFormTextViewCell.h; sourceTree = "<group>"; };
 		3C7F897120F32F7A0010CB68 /* YUFormTextViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUFormTextViewCell.m; sourceTree = "<group>"; };
 		3C7F897220F32F7A0010CB68 /* YUFormTextViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUFormTextViewCell.xib; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				3C8D76BB20BCF4BA0011D1BA /* YUFormNormalHeadSection.h */,
 				3C8D76BC20BCF4BA0011D1BA /* YUFormNormalHeadSection.m */,
 				3C8D76C420BD31370011D1BA /* YUFormNormalHeadSection.xib */,
+				3C07D66421427CDA004D5AC5 /* YUFormWhiteBlockHeadSection.h */,
+				3C07D66521427CDA004D5AC5 /* YUFormWhiteBlockHeadSection.m */,
 			);
 			path = section;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 				3C07D64B213FB2B4004D5AC5 /* YUFormChoiceHeadSection.m in Sources */,
 				3C8D769D20B7A64F0011D1BA /* YUForm.m in Sources */,
 				3C8D76A820BB9B960011D1BA /* YUFormCellModel..m in Sources */,
+				3C07D66621427CDA004D5AC5 /* YUFormWhiteBlockHeadSection.m in Sources */,
 				3C8D76A120B7A6A20011D1BA /* ShellKitSelectTableViewDataSource.m in Sources */,
 				3C8D76BA20BC06540011D1BA /* YUFormSectionModel.m in Sources */,
 			);

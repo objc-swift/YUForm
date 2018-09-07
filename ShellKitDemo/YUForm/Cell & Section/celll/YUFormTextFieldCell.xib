@@ -42,7 +42,7 @@
                     <constraint firstAttribute="trailing" secondItem="PFm-wB-lYo" secondAttribute="trailing" constant="20" id="D78-uR-eo1"/>
                     <constraint firstItem="PFm-wB-lYo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Npk-yp-jdx"/>
                     <constraint firstItem="PFm-wB-lYo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="d2h-TP-00l"/>
-                    <constraint firstAttribute="bottom" secondItem="PFm-wB-lYo" secondAttribute="bottom" priority="250" id="mpu-HM-mBk"/>
+                    <constraint firstAttribute="bottom" secondItem="PFm-wB-lYo" secondAttribute="bottom" priority="250" constant="10" id="mpu-HM-mBk"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
