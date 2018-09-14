@@ -180,7 +180,7 @@
 		3C8D765C20B7A5950011D1BA = {
 			isa = PBXGroup;
 			children = (
-				3C8D766720B7A5950011D1BA /* ShellKitDemo */,
+				3C8D766720B7A5950011D1BA /* YUFormDemo */,
 				3C8D768020B7A5960011D1BA /* ShellKitDemoTests */,
 				3C8D768B20B7A5960011D1BA /* ShellKitDemoUITests */,
 				3C8D766620B7A5950011D1BA /* Products */,
@@ -199,7 +199,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3C8D766720B7A5950011D1BA /* ShellKitDemo */ = {
+		3C8D766720B7A5950011D1BA /* YUFormDemo */ = {
 			isa = PBXGroup;
 			children = (
 				3C8D769A20B7A5AF0011D1BA /* YUForm */,
@@ -213,7 +213,7 @@
 				3C8D76AA20BBB1D30011D1BA /* ViewController.m */,
 				3C8D76AB20BBB1D30011D1BA /* ViewController.xib */,
 			);
-			path = ShellKitDemo;
+			path = YUFormDemo;
 			sourceTree = "<group>";
 		};
 		3C8D768020B7A5960011D1BA /* ShellKitDemoTests */ = {
@@ -634,7 +634,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JLAJ9329RS;
-				INFOPLIST_FILE = ShellKitDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/YUFormDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -653,7 +653,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JLAJ9329RS;
-				INFOPLIST_FILE = ShellKitDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/YUFormDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

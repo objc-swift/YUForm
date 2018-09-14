@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="97" id="KGk-i7-Jjw" customClass="YUFormTextFieldCell">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="97"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="370" height="96.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFm-wB-lYo">
+                        <rect key="frame" x="20" y="0.0" width="330" height="41"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MKv-p6-uhl">
+                                <rect key="frame" x="10" y="0.0" width="310" height="41"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="MKv-p6-uhl" secondAttribute="bottom" id="UnB-2c-80o"/>
+                            <constraint firstItem="MKv-p6-uhl" firstAttribute="leading" secondItem="PFm-wB-lYo" secondAttribute="leading" constant="10" id="fpX-an-cJU"/>
+                            <constraint firstAttribute="trailing" secondItem="MKv-p6-uhl" secondAttribute="trailing" constant="10" id="ifX-tU-YFy"/>
+                            <constraint firstItem="MKv-p6-uhl" firstAttribute="top" secondItem="PFm-wB-lYo" secondAttribute="top" id="m66-nf-a4I"/>
+                            <constraint firstAttribute="height" constant="41" id="shQ-jU-YG5"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="PFm-wB-lYo" secondAttribute="trailing" constant="20" id="D78-uR-eo1"/>
+                    <constraint firstItem="PFm-wB-lYo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Npk-yp-jdx"/>
+                    <constraint firstItem="PFm-wB-lYo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="d2h-TP-00l"/>
+                    <constraint firstAttribute="bottom" secondItem="PFm-wB-lYo" secondAttribute="bottom" priority="250" constant="10" id="mpu-HM-mBk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bgView" destination="PFm-wB-lYo" id="6X3-jv-snf"/>
+                <outlet property="textField" destination="MKv-p6-uhl" id="6Dt-mX-jlj"/>
+            </connections>
+            <point key="canvasLocation" x="188" y="131.5"/>
+        </tableViewCell>
+    </objects>
+</document>

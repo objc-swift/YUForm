@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="251" id="KGk-i7-Jjw" customClass="YUFormTextViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="272" height="251"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="272" height="250.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8z-JW-UBU">
+                        <rect key="frame" x="10" y="0.0" width="252" height="122"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1kQ-hV-jwC">
+                                <rect key="frame" x="10" y="0.0" width="232" height="122"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="122" id="H1W-kf-nWg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1kQ-hV-jwC" secondAttribute="trailing" constant="10" id="RCd-C0-7FH"/>
+                            <constraint firstAttribute="height" constant="122" id="VPV-gi-WdZ"/>
+                            <constraint firstItem="1kQ-hV-jwC" firstAttribute="top" secondItem="g8z-JW-UBU" secondAttribute="top" id="Vhx-hu-zkf"/>
+                            <constraint firstAttribute="bottom" secondItem="1kQ-hV-jwC" secondAttribute="bottom" id="po8-gl-z8M"/>
+                            <constraint firstItem="1kQ-hV-jwC" firstAttribute="leading" secondItem="g8z-JW-UBU" secondAttribute="leading" constant="10" id="xM9-ZF-F29"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="g8z-JW-UBU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4jN-uD-owx"/>
+                    <constraint firstItem="g8z-JW-UBU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BUW-lv-XWc"/>
+                    <constraint firstAttribute="trailing" secondItem="g8z-JW-UBU" secondAttribute="trailing" constant="10" id="jj6-cL-5fx"/>
+                    <constraint firstAttribute="bottom" secondItem="g8z-JW-UBU" secondAttribute="bottom" priority="250" id="uaU-1r-cC9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bgView" destination="g8z-JW-UBU" id="hVj-bm-gyB"/>
+                <outlet property="textView" destination="1kQ-hV-jwC" id="9Q6-d6-vN3"/>
+            </connections>
+            <point key="canvasLocation" x="85" y="-17.5"/>
+        </tableViewCell>
+    </objects>
+</document>
